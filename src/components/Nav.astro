@@ -1,0 +1,81 @@
+---
+import { SITE, pathFor, type Locale } from '../config';
+import { dictionaries } from '../i18n';
+import Logo from './Logo.astro';
+import LangPicker from './LangPicker.astro';
+interface Props { lang: Locale; page?: string }
+const { lang, page = '' } = Astro.props;
+const t = dictionaries[lang];
+const home = pathFor(lang);
+---
+<nav class="nav container" aria-label="Main">
+  <a href={home} class="home" aria-label="Grabi"><Logo /></a>
+  <div class="links">
+    <a href={`${home === '/' ? '' : home}/#como`}>{t.nav.how}</a>
+    <a href={`${home === '/' ? '' : home}/#features`}>{t.nav.features}</a>
+    <a href={`${home === '/' ? '' : home}/#comparativa`}>{t.nav.compare}</a>
+    <a href={`${home === '/' ? '' : home}/#faq`}>{t.nav.faq}</a>
+  </div>
+  <div class="actions">
+    <LangPicker lang={lang} page={page} label={t.a11y.langSelector} />
+    <button class="theme" type="button" aria-label={t.a11y.themeToggle} title={t.nav.theme}>
+      <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4 a8 8 0 0 1 0 16 z" fill="currentColor"/></svg>
+    </button>
+    <a class="stars" href={SITE.githubApp} data-event="github_click" data-section="nav" rel="noopener" target="_blank">
+      <span aria-hidden="true">★</span> <span data-stars>GitHub</span>
+    </a>
+    <a class="dl" href={SITE.downloadUrl} data-event="download_click" data-section="nav" rel="noopener">{t.nav.download}</a>
+  </div>
+</nav>
+<script is:inline>
+  // Theme toggle: explicit choice wins over system, persisted.
+  document.querySelectorAll('.theme').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var root = document.documentElement;
+      var systemDark = matchMedia('(prefers-color-scheme: dark)').matches;
+      var current = root.getAttribute('data-theme') || (systemDark ? 'dark' : 'light');
+      var next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('grabi-theme', next);
+    });
+  });
+  // GitHub stars with graceful static fallback (wireframe: isla con fallback).
+  fetch('https://api.github.com/repos/freeloz/grabi')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (d && d.stargazers_count) {
+        document.querySelectorAll('[data-stars]').forEach(function (el) {
+          el.textContent = new Intl.NumberFormat(document.documentElement.lang).format(d.stargazers_count);
+        });
+      }
+    })
+    .catch(function () {});
+</script>
+<style>
+  .nav { display: flex; align-items: center; gap: 26px; padding-block: 18px; }
+  .home { text-decoration: none; }
+  .links { flex: 1; display: flex; gap: 22px; font-size: 14px; font-weight: 500; }
+  .links a { color: var(--text2); text-decoration: none; }
+  .links a:hover { color: var(--text); }
+  .actions { display: flex; align-items: center; gap: 12px; }
+  .theme {
+    display: inline-flex; background: none; border: 0; cursor: pointer;
+    color: var(--text2); padding: 6px;
+  }
+  .stars {
+    display: inline-flex; align-items: center; gap: 7px;
+    border: 1px solid var(--border2); border-radius: 9px; padding: 6px 12px;
+    font-size: 13px; font-weight: 600; color: var(--text); text-decoration: none;
+  }
+  .dl {
+    height: 38px; padding: 0 18px; border-radius: var(--r-full);
+    background: var(--brand); color: var(--onbrand);
+    font-size: 14px; font-weight: 600; display: inline-flex; align-items: center;
+    text-decoration: none; transition: background var(--t-fast) var(--ease);
+  }
+  .dl:hover { background: var(--brandh); }
+  @media (max-width: 860px) {
+    .links { display: none; }
+    .stars { display: none; }
+  }
+</style>

@@ -1,0 +1,38 @@
+---
+/* Language selector (header + footer, per design). Native <details> — no JS. */
+import { LOCALES, pathFor, type Locale } from '../config';
+import { languageNames } from '../i18n';
+interface Props { lang: Locale; page?: string; label: string; up?: boolean }
+const { lang, page = '', label, up = false } = Astro.props;
+---
+<details class:list={['lang', { up }]}>
+  <summary aria-label={label}>{languageNames[lang]} <span class="caret">▾</span></summary>
+  <ul>
+    {LOCALES.filter((l) => l !== lang).map((l) => (
+      <li><a href={pathFor(l, page)} hreflang={l} lang={l}>{languageNames[l]}</a></li>
+    ))}
+  </ul>
+</details>
+<style>
+  .lang { position: relative; }
+  summary {
+    list-style: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 6px;
+    border: 1px solid var(--border2); border-radius: 9px;
+    padding: 6px 11px; font-size: 13px; font-weight: 500; color: var(--text);
+  }
+  summary::-webkit-details-marker { display: none; }
+  .caret { font-size: 10px; color: var(--text2); }
+  ul {
+    position: absolute; right: 0; top: calc(100% + 6px); z-index: 40;
+    margin: 0; padding: 5px; list-style: none; min-width: 150px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--r-sm); box-shadow: 0 12px 32px var(--shadow);
+  }
+  .up ul { top: auto; bottom: calc(100% + 6px); }
+  li a {
+    display: block; padding: 8px 10px; border-radius: var(--r-xs);
+    color: var(--text); text-decoration: none; font-size: 13.5px;
+  }
+  li a:hover { background: var(--bg); }
+</style>

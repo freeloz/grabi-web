@@ -1,0 +1,38 @@
+---
+/* The full landing, assembled per Fase 5A order:
+   hero (+trust) → how → features ×5 → use cases → compare → privacy →
+   open source + donations → FAQ → final CTA. */
+import { type Locale } from '../config';
+import Nav from './Nav.astro';
+import Hero from './Hero.astro';
+import HowItWorks from './HowItWorks.astro';
+import Features from './Features.astro';
+import UseCases from './UseCases.astro';
+import Compare from './Compare.astro';
+import Privacy from './Privacy.astro';
+import OssDonate from './OssDonate.astro';
+import Faq from './Faq.astro';
+import FinalCta from './FinalCta.astro';
+import Footer from './Footer.astro';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+---
+<Nav lang={lang} />
+<main id="main">
+  <Hero lang={lang} />
+  <div class="container-narrow sections">
+    <HowItWorks lang={lang} />
+    <Features lang={lang} />
+    <UseCases lang={lang} />
+    <Compare lang={lang} />
+    <Privacy lang={lang} />
+    <OssDonate lang={lang} />
+    <Faq lang={lang} />
+    <FinalCta lang={lang} />
+  </div>
+</main>
+<Footer lang={lang} />
+<style>
+  .sections { padding-block: 96px 80px; display: flex; flex-direction: column; gap: 96px; }
+  @media (max-width: 640px) { .sections { padding-block: 64px 48px; gap: 64px; } }
+</style>

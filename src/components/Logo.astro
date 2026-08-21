@@ -1,0 +1,21 @@
+---
+/* Logo: mascot head (full logo circle r40, c(48,48)) + lowercase wordmark
+   with the red dot as the tittle of the "i" — per brand manual §01. */
+interface Props { size?: number; wordmark?: boolean }
+const { size = 30, wordmark = true } = Astro.props;
+---
+<span class="logo">
+  <svg viewBox="0 0 96 96" width={size} height={size} aria-hidden="true">
+    <circle cx="48" cy="48" r="40" fill="var(--rec)"/>
+    <circle cx="37" cy="41" r="5.5" fill="var(--bg)"/>
+    <circle cx="59" cy="41" r="5.5" fill="var(--bg)"/>
+    <rect x="38" y="58" width="20" height="7" rx="3.5" fill="var(--bg)"/>
+  </svg>
+  {wordmark && <span class="wm">grab<span class="i">ı<span class="dot"></span></span></span>}
+</span>
+<style>
+  .logo { display: inline-flex; align-items: center; gap: 9px; }
+  .wm { font-family: var(--font-display); font-size: 23px; font-weight: 780; line-height: 1; color: var(--text); }
+  .i { position: relative; display: inline-block; }
+  .dot { position: absolute; left: 50%; top: 0.02em; transform: translateX(-50%); width: 0.17em; height: 0.17em; border-radius: 50%; background: var(--rec); }
+</style>

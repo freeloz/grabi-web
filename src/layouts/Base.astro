@@ -1,0 +1,129 @@
+---
+/* Base layout: SEO per page & language, hreflang, OG cards, JSON-LD,
+   theme bootstrapping, and env-gated analytics (GA4 + Clarity).
+   Secrets NEVER live in the repo — IDs arrive via env at build time. */
+import { SITE, LOCALES, pathFor, type Locale } from '../config';
+import { dictionaries } from '../i18n';
+import '../styles/tokens.css';
+
+interface Props {
+  lang: Locale;
+  page?: '' | 'changelog' | 'press' | '404';
+  title?: string;
+  description?: string;
+}
+const { lang, page = '', title, description } = Astro.props;
+const t = dictionaries[lang];
+const pageTitle = title ?? (page === 'changelog' ? t.meta.changelogTitle : page === 'press' ? t.meta.pressTitle : t.meta.title);
+const pageDesc = description ?? (page === 'changelog' ? t.meta.changelogDesc : page === 'press' ? t.meta.pressDesc : t.meta.description);
+const canonical = `${SITE.url}${pathFor(lang, page === '404' ? '' : page)}`;
+const isIndexable = page !== '404';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Grabi',
+  operatingSystem: 'macOS 13.0 or later',
+  applicationCategory: 'MultimediaApplication',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  description: t.meta.description,
+  url: SITE.url,
+  downloadUrl: SITE.downloadUrl,
+  softwareVersion: SITE.version,
+  license: 'https://opensource.org/license/mit',
+  author: { '@type': 'Organization', name: 'Freeloz', url: 'https://github.com/freeloz' },
+};
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDesc} />
+  <link rel="canonical" href={canonical} />
+  {isIndexable && LOCALES.map((l) => (
+    <link rel="alternate" hreflang={l} href={`${SITE.url}${pathFor(l, page)}`} />
+  ))}
+  {isIndexable && <link rel="alternate" hreflang="x-default" href={`${SITE.url}${pathFor('en', page)}`} />}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Grabi" />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDesc} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={`${SITE.url}/og.png`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content={lang} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={pageDesc} />
+  <meta name="twitter:image" content={`${SITE.url}/og.png`} />
+
+  <!-- Fonts: the two brand families, swap so text never blocks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Theme before paint: manual choice wins; otherwise system -->
+  <script is:inline>
+    (function () {
+      var t = localStorage.getItem('grabi-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  {SITE.ga4 && (
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4}`}></script>
+  )}
+  {SITE.ga4 && (
+    <script is:inline define:vars={{ id: SITE.ga4 }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', id, { anonymize_ip: true });
+    </script>
+  )}
+  {SITE.clarity && (
+    <script is:inline define:vars={{ id: SITE.clarity }}>
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", id);
+    </script>
+  )}
+</head>
+<body>
+  <a class="skip" href="#main">{t.a11y.skip}</a>
+  <slot />
+
+  <!-- Minimal analytics event delegation: elements opt in with data-event.
+       Works with or without GA4 present. -->
+  <script is:inline define:vars={{ lang }}>
+    document.addEventListener('click', function (e) {
+      var el = e.target instanceof Element ? e.target.closest('[data-event]') : null;
+      if (!el || typeof window.gtag !== 'function') return;
+      window.gtag('event', el.getAttribute('data-event'), {
+        language: lang,
+        section: el.getAttribute('data-section') || 'unknown',
+      });
+    });
+  </script>
+</body>
+</html>
+<style>
+  .skip {
+    position: absolute; left: -9999px; top: 0; z-index: 100;
+    background: var(--brand); color: var(--onbrand);
+    padding: 10px 18px; border-radius: 0 0 var(--r-sm) 0; font-weight: 600;
+  }
+  .skip:focus { left: 0; }
+</style>

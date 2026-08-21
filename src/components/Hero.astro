@@ -1,0 +1,341 @@
+---
+/* Hero — Fase 5B, animation option A ("this page is being recorded"):
+   a thin red frame draws itself around the hero on load and a live ● REC
+   badge counts real time. Inside the Mac mockup, the scripted 15 s demo:
+   panel → system-audio toggle → 3·2·1 → REC pill with timer → PiP moves &
+   changes shape → notification → mascot "That easy." — exact timings from
+   the approved prototype. Plain inline script, no framework. */
+import { SITE, type Locale } from '../config';
+import { dictionaries } from '../i18n';
+import DownloadButton from './DownloadButton.astro';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+const h = t.hero;
+---
+<header class="hero container">
+  <div class="stage">
+    <svg class="frame" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+      <rect x="0.4" y="0.6" width="99.2" height="98.8" rx="2.6" pathLength="100" fill="none" stroke="var(--rec)" stroke-width="0.35" vector-effect="non-scaling-stroke" />
+    </svg>
+    <span class="recbadge" role="timer" aria-label={h.recBadgeLabel}>
+      <span class="dot" aria-hidden="true"></span>
+      <span class="rec">REC</span>
+      <span class="time" data-hero-clock>0:00</span>
+    </span>
+
+    <div class="copy">
+      <h1>{h.title}</h1>
+      <p class="sub">{h.sub}</p>
+      <div class="ctas">
+        <DownloadButton label={h.cta} section="hero" />
+        <span class="meta">{h.meta} · <a href={SITE.githubApp} data-event="github_click" data-section="hero" rel="noopener" target="_blank">{h.github}</a></span>
+      </div>
+    </div>
+
+    <!-- Mac mockup with the scripted demo -->
+    <div class="mock" data-demo aria-label={t.a11y.demoRegion}>
+      <div class="titlebar">
+        <span class="tl red"></span><span class="tl yellow"></span><span class="tl green"></span>
+        <span class="title">{h.demoWindow}</span>
+        <span class="tl-spacer"></span>
+      </div>
+      <div class="screen">
+        <div class="menubar"><b>&#63743;</b><b>Keynote</b><span>File</span><span>Edit</span><span>Help</span><i></i><span>9:41</span></div>
+        <div class="slides">
+          <div class="slides-bar"><span class="tl red sm"></span><span class="tl yellow sm"></span><span class="tl green sm"></span><span class="stitle">Photosynthesis — class 4</span></div>
+          <div class="slides-body">
+            <strong>What does a plant need?</strong>
+            <div class="cols">
+              <div class="list">
+                <span><i style="background:#F2B04A"></i>Sunlight</span>
+                <span><i style="background:#4A90D9"></i>Water</span>
+                <span><i style="background:#58B368"></i>CO₂</span>
+              </div>
+              <div class="bars"><span style="height:38%;background:#F2B04A"></span><span style="height:62%;background:#4A90D9"></span><span style="height:85%;background:#58B368"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="dock">
+          <span style="background:linear-gradient(160deg,#5FA2E0,#3E77BF)"></span>
+          <span style="background:linear-gradient(160deg,#6EC383,#43A05C)"></span>
+          <span style="background:linear-gradient(160deg,#F6C263,#E5983C)"></span>
+          <span style="background:linear-gradient(160deg,#A08BD0,#7B62B4)"></span>
+          <span class="dock-grabi"><svg viewBox="0 0 96 96" width="17" height="17"><circle cx="48" cy="48" r="40" fill="#E5483F"/><circle cx="36" cy="44" r="6.5" fill="#FFF6F0"/><circle cx="60" cy="44" r="6.5" fill="#FFF6F0"/></svg></span>
+        </div>
+
+        <div class="panel" data-d="panel" hidden>
+          <div class="row"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#26221C" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="12" rx="2"/><line x1="9" y1="20" x2="15" y2="20"/></svg><span>{h.panel.screen}</span><i class="sw on"></i></div>
+          <div class="row"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#26221C" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="10.5" r="2.5"/></svg><span>{h.panel.camera}</span><i class="sw on"></i></div>
+          <div class="row"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#26221C" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11 a7 7 0 0 0 14 0"/><line x1="12" y1="18" x2="12" y2="21"/></svg><span>{h.panel.mic}</span><i class="sw on"></i></div>
+          <div class="row"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#26221C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9 h3 l4 -4 v14 l-4 -4 H4 z"/><path d="M15 9 a4.5 4.5 0 0 1 0 6"/></svg><span>{h.panel.system}</span><i class="sw" data-d="audio-sw"></i></div>
+          <span class="rowbtn"><i class="gdot"></i>{h.panel.record}</span>
+        </div>
+
+        <div class="count" data-d="count" hidden><span data-d="count-n">3</span></div>
+
+        <span class="pill" data-d="pill" hidden>
+          <span class="pdot" aria-hidden="true"></span>
+          <span class="ptime" data-d="pill-time">0:00</span>
+          <span class="pdiv"></span>
+          <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#F2EDE4" stroke-width="2.5" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="18"/></svg>
+          <span class="pstop"></span>
+        </span>
+
+        <span class="pip" data-d="pip" aria-hidden="true">
+          <svg viewBox="0 0 80 80" preserveAspectRatio="xMidYMid slice">
+            <rect width="80" height="80" fill="url(#selfg)"/>
+            <defs><linearGradient id="selfg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8B98A"/><stop offset="1" stop-color="#C98B6B"/></linearGradient></defs>
+            <circle cx="40" cy="32" r="14" fill="#8A5F3C"/>
+            <path d="M12 80 q28 -34 56 0 z" fill="#5C7A9E"/>
+          </svg>
+        </span>
+
+        <div class="notif" data-d="notif" hidden>
+          <svg viewBox="0 0 96 96" width="24" height="24"><circle cx="48" cy="48" r="40" fill="#E5483F"/><circle cx="37" cy="41" r="5.5" fill="#FFF6F0"/><circle cx="59" cy="41" r="5.5" fill="#FFF6F0"/><path d="M38 57 q10 11 20 0" fill="none" stroke="#FFF6F0" stroke-width="5" stroke-linecap="round"/></svg>
+          <span><b>{h.notifTitle}</b><small><span data-d="notif-dur">0:11</span> · {h.notifMeta}</small></span>
+        </div>
+
+        <div class="end" data-d="end" hidden>
+          <svg viewBox="0 0 96 96" width="62" height="62"><circle cx="24" cy="18" r="3" fill="#E8B23A"/><circle cx="72" cy="14" r="3.5" fill="#FF6B5E"/><circle cx="80" cy="34" r="2.5" fill="#E8B23A"/><circle cx="48" cy="50" r="30" fill="#E5483F"/><path d="M35 45 q5 -7 10 0" fill="none" stroke="#FFF6F0" stroke-width="3.5" stroke-linecap="round"/><path d="M51 45 q5 -7 10 0" fill="none" stroke="#FFF6F0" stroke-width="3.5" stroke-linecap="round"/><path d="M39 57 q9 11 18 0" fill="none" stroke="#FFF6F0" stroke-width="4" stroke-linecap="round"/></svg>
+          <strong>{h.demoEnd}</strong>
+          <button type="button" data-d="replay">{h.demoReplay}</button>
+        </div>
+
+        <div class="idle" data-d="idle">
+          <button type="button" data-d="play" aria-label={h.demoPlay}>
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--onbrand)" aria-hidden="true"><path d="M8 5 l12 7 -12 7 z"/></svg>
+          </button>
+          <span class="hint">{h.demoPlay}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="trust" role="list">
+    {t.trust.map((chip) => <li><i aria-hidden="true"></i>{chip}</li>)}
+  </ul>
+</header>
+
+<script is:inline>
+  (function () {
+    // Live hero clock — this page is being "recorded" since you arrived.
+    var clock = document.querySelector('[data-hero-clock]');
+    var secs = 0;
+    function fmt(s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+    setInterval(function () { secs++; if (clock) clock.textContent = fmt(secs); }, 1000);
+
+    // Demo state machine — exact timings from the approved prototype.
+    var demo = document.querySelector('[data-demo]');
+    if (!demo) return;
+    var q = function (n) { return demo.querySelector('[data-d="' + n + '"]'); };
+    var els = { idle: q('idle'), panel: q('panel'), audioSw: q('audio-sw'), count: q('count'), countN: q('count-n'),
+                pill: q('pill'), pillTime: q('pill-time'), pip: q('pip'), notif: q('notif'), notifDur: q('notif-dur'), end: q('end') };
+    var timers = [], tick = null, dSecs = 0;
+    function show(el, on) { if (el) el.hidden = !on; }
+    function reset() {
+      timers.forEach(clearTimeout); timers = []; clearInterval(tick); dSecs = 0;
+      ['panel', 'count', 'pill', 'notif', 'end'].forEach(function (n) { show(els[n], false); });
+      if (els.audioSw) els.audioSw.classList.remove('on');
+      demo.classList.remove('recording');
+      if (els.pillTime) els.pillTime.textContent = '0:00';
+    }
+    function at(ms, fn) { timers.push(setTimeout(fn, ms)); }
+    function run() {
+      reset();
+      show(els.idle, false);
+      show(els.panel, true);
+      at(900, function () { els.audioSw && els.audioSw.classList.add('on'); });
+      at(1800, function () { show(els.count, true); els.countN.textContent = '3'; });
+      at(2500, function () { els.countN.textContent = '2'; });
+      at(3200, function () { els.countN.textContent = '1'; });
+      at(3900, function () {
+        show(els.count, false); show(els.panel, false); show(els.pill, true);
+        demo.classList.add('recording');
+        tick = setInterval(function () { dSecs++; els.pillTime.textContent = fmt(dSecs); }, 1000);
+      });
+      at(6400, function () { demo.classList.add('pip1'); });
+      at(8900, function () { demo.classList.remove('pip1'); demo.classList.add('pip2'); });
+      at(11400, function () {
+        clearInterval(tick);
+        show(els.pill, false); demo.classList.remove('pip2'); demo.classList.remove('recording');
+        els.notifDur.textContent = fmt(dSecs);
+        show(els.notif, true);
+      });
+      at(14200, function () { show(els.notif, false); show(els.end, true); });
+    }
+    var play = q('play'), replay = q('replay');
+    if (play) play.addEventListener('click', function () {
+      run();
+      if (typeof window.gtag === 'function') window.gtag('event', 'demo_play', { language: document.documentElement.lang });
+    });
+    if (replay) replay.addEventListener('click', run);
+  })();
+</script>
+
+<style>
+  .hero { padding-top: 26px; }
+  .stage { position: relative; padding: 56px 40px 52px; text-align: center; }
+  .frame { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .frame rect { stroke-dasharray: 100; stroke-dashoffset: 100; animation: drawFrame 1.1s ease-out 0.2s forwards; }
+  @media (prefers-reduced-motion: reduce) { .frame rect { stroke-dashoffset: 0; } }
+
+  .recbadge {
+    position: absolute; top: 16px; right: 18px; z-index: 2;
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--ink); border-radius: var(--r-full); padding: 6px 13px;
+    box-shadow: 0 4px 14px var(--shadow);
+  }
+  .recbadge .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rec-on-ink); animation: recPulse var(--t-pulse) ease-in-out infinite; }
+  .recbadge .rec { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--ivory); }
+  .recbadge .time { font-size: 12px; font-weight: 600; color: var(--ivory-dim); font-variant-numeric: tabular-nums; }
+
+  .copy { display: flex; flex-direction: column; align-items: center; gap: 18px; animation: fadeUp .6s ease-out both; }
+  h1 { font-size: clamp(38px, 6.5vw, 62px); line-height: 1.04; font-weight: 780; margin: 0; max-width: 820px; letter-spacing: -0.01em; }
+  .sub { font-size: clamp(16px, 2.2vw, 19px); line-height: 1.55; color: var(--text2); margin: 0; max-width: 640px; text-wrap: pretty; }
+  .ctas { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 6px; }
+  .meta { font-size: 13px; color: var(--text2); }
+  .meta a { color: var(--brand); font-weight: 500; }
+
+  /* Mac mockup */
+  .mock {
+    max-width: 840px; margin: 40px auto 0; text-align: left;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; box-shadow: 0 24px 60px var(--shadow); overflow: hidden;
+    animation: fadeUp .6s ease-out .15s both;
+  }
+  .titlebar { display: flex; align-items: center; gap: 8px; padding: 11px 16px; border-bottom: 1px solid var(--border); background: var(--track); }
+  .tl { width: 12px; height: 12px; border-radius: 50%; }
+  .tl.sm { width: 9px; height: 9px; }
+  .tl.red { background: #FF5F57; } .tl.yellow { background: #FEBC2E; } .tl.green { background: #28C840; }
+  .title { flex: 1; text-align: center; font-size: 12.5px; font-weight: 600; color: var(--text2); }
+  .tl-spacer { width: 36px; }
+
+  .screen { position: relative; aspect-ratio: 16/9; background: linear-gradient(140deg, #F4B76B 0%, #DF6E5E 45%, #6E5397 100%); overflow: hidden; }
+  .menubar {
+    position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; gap: 11px;
+    padding: 4px 12px; background: rgba(255, 252, 246, 0.45); backdrop-filter: blur(8px);
+    font-family: var(--font-body); font-size: 9.5px; color: #3A2B1D;
+  }
+  .menubar b { font-weight: 700; } .menubar i { flex: 1; }
+  .slides {
+    position: absolute; left: 5.5%; top: 13%; width: 58%; bottom: 16%;
+    background: #FFFDF9; border-radius: 10px; box-shadow: 0 18px 44px rgba(20, 18, 16, 0.35); overflow: hidden;
+  }
+  .slides-bar { display: flex; align-items: center; gap: 6px; padding: 7px 10px; background: #F1ECE2; border-bottom: 1px solid #E3DCCD; }
+  .stitle { flex: 1; text-align: center; font-size: 9px; font-weight: 600; color: #7A6F5C; }
+  .slides-body { padding: 14px 18px; display: flex; flex-direction: column; gap: 10px; }
+  .slides-body strong { font-size: 15px; font-weight: 800; color: #2E2318; letter-spacing: -0.01em; }
+  .cols { display: flex; gap: 14px; align-items: flex-end; }
+  .list { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+  .list span { display: flex; align-items: center; gap: 6px; font-size: 10px; color: #4A4438; }
+  .list i { width: 8px; height: 8px; border-radius: 50%; }
+  .bars { flex: 1; display: flex; align-items: flex-end; gap: 7px; height: 64px; border-bottom: 1.5px solid #E3DCCD; padding: 0 6px; }
+  .bars span { flex: 1; border-radius: 4px 4px 0 0; }
+  .dock {
+    position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 8px; padding: 6px 11px;
+    background: rgba(255, 252, 246, 0.4); backdrop-filter: blur(10px); border-radius: 14px;
+  }
+  .dock > span { width: 24px; height: 24px; border-radius: 7px; }
+  .dock-grabi { background: #FFF6F0; display: flex !important; align-items: center; justify-content: center; }
+
+  /* Demo layers */
+  .panel {
+    position: absolute; top: 30px; right: 14px; width: 192px; z-index: 4;
+    background: rgba(250, 247, 241, 0.97); border: 1px solid #EAE3D6; border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(20, 18, 16, 0.35); padding: 9px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .panel[hidden], .count[hidden], .pill[hidden], .notif[hidden], .end[hidden], .idle[hidden] { display: none; }
+  .panel .row {
+    display: flex; align-items: center; gap: 7px; padding: 6px 8px;
+    background: #FFFFFF; border: 1px solid #F3EEE3; border-radius: 8px;
+  }
+  .panel .row span { flex: 1; font-size: 9.5px; font-weight: 600; color: #26221C; }
+  .sw { width: 24px; height: 14px; border-radius: 99px; background: #C4B89F; position: relative; flex-shrink: 0; transition: background .25s; }
+  .sw::after { content: ''; position: absolute; top: 1.5px; left: 1.5px; width: 11px; height: 11px; border-radius: 50%; background: #FFF; transition: left .25s; }
+  .sw.on { background: #2E7D4C; }
+  .sw.on::after { left: 11.5px; }
+  .rowbtn {
+    height: 26px; border-radius: 99px; background: #FFF; border: 1.5px solid #D8CDB8;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-size: 10px; font-weight: 600; color: #26221C;
+  }
+  .gdot { width: 8px; height: 8px; border-radius: 50%; background: #2E7D4C; }
+
+  .count {
+    position: absolute; inset: 0; z-index: 5;
+    background: rgba(20, 18, 16, 0.35); backdrop-filter: blur(2px);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .count span { font-family: var(--font-display); font-size: 76px; font-weight: 780; color: #FAF7F1; }
+
+  .pill {
+    position: absolute; top: 32px; left: 20px; z-index: 4;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(38, 34, 28, 0.92); border-radius: 99px; padding: 7px 14px 7px 10px;
+  }
+  .pdot { width: 8px; height: 8px; border-radius: 50%; background: #FF6B5E; animation: recPulse var(--t-pulse) ease-in-out infinite; }
+  .ptime { font-size: 12.5px; font-weight: 600; color: #F2EDE4; font-variant-numeric: tabular-nums; }
+  .pdiv { width: 1px; height: 14px; background: #3A342C; }
+  .pstop { width: 10px; height: 10px; border-radius: 2.5px; background: #FF6B5E; }
+
+  /* PiP: hidden until recording; positions/shape follow the demo script */
+  .pip {
+    position: absolute; z-index: 3; overflow: hidden; display: none;
+    border: 3px solid #FFFFFF; box-shadow: 0 10px 28px rgba(20, 18, 16, 0.45);
+    top: 52%; left: 74%; width: 13%; aspect-ratio: 1; border-radius: 50%;
+    transition: all 0.9s var(--ease);
+  }
+  .pip svg { width: 100%; height: 100%; display: block; }
+  .recording .pip { display: block; }
+  .pip1 .pip { top: 12%; left: 38%; width: 11%; border-radius: 16px; }
+  .pip2 .pip { top: 56%; left: 66%; width: 18%; aspect-ratio: 3/2; border-radius: 12px; }
+
+  .notif {
+    position: absolute; top: 30px; right: 14px; width: 220px; z-index: 4;
+    background: rgba(250, 247, 241, 0.97); border: 1px solid #EAE3D6; border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(20, 18, 16, 0.35); padding: 9px 11px;
+    display: flex; align-items: center; gap: 9px;
+  }
+  .notif span { display: flex; flex-direction: column; gap: 1px; }
+  .notif b { font-size: 10.5px; font-weight: 700; color: #26221C; }
+  .notif small { font-size: 9.5px; color: #5C5548; }
+
+  .end {
+    position: absolute; inset: 0; z-index: 5;
+    background: rgba(27, 25, 22, 0.72); backdrop-filter: blur(3px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  }
+  .end strong { font-family: var(--font-display); font-size: 26px; font-weight: 760; color: #FAF7F1; }
+  .end button {
+    height: 34px; padding: 0 16px; border-radius: 99px; cursor: pointer;
+    border: 1.5px solid rgba(250, 247, 241, 0.55); background: none;
+    color: #FAF7F1; font-size: 13px; font-weight: 600; font-family: var(--font-body);
+  }
+
+  .idle { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: rgba(27, 25, 22, 0.18); }
+  .idle button {
+    width: 74px; height: 74px; border-radius: 50%; border: 0; cursor: pointer;
+    background: var(--brand); display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: 0 12px 32px rgba(20, 18, 16, 0.4);
+    transition: background var(--t-fast) var(--ease);
+  }
+  .idle button:hover { background: var(--brandh); }
+  .idle .hint { font-family: var(--font-mono); font-size: 12px; color: #26221C; background: rgba(250, 247, 241, 0.95); padding: 5px 10px; border-radius: 7px; }
+
+  /* Trust bar — wraps to two rows in German without breaking */
+  .trust {
+    display: flex; justify-content: center; gap: 10px 28px; flex-wrap: wrap;
+    padding: 30px 20px 0; margin: 0; list-style: none;
+    font-size: 13.5px; font-weight: 600; color: var(--text2);
+  }
+  .trust li { display: inline-flex; align-items: center; gap: 7px; }
+  .trust i { width: 6px; height: 6px; border-radius: 50%; background: var(--exito); }
+
+  @media (max-width: 640px) {
+    .stage { padding: 40px 14px 36px; }
+    .recbadge { top: 10px; right: 10px; }
+  }
+</style>

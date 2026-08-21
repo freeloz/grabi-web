@@ -1,0 +1,60 @@
+---
+import { type Locale } from '../config';
+import { dictionaries } from '../i18n';
+import Mascot from './Mascot.astro';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+---
+<section id="como" class="how">
+  <div class="head">
+    <span class="eyebrow">{t.how.eyebrow}</span>
+    <h2>{t.how.title}</h2>
+  </div>
+  <div class="grid">
+    <div class="card step">
+      <span class="num">1</span>
+      <div class="visual icons">
+        {['screen','camera','mic','audio'].map((k) => (
+          <span class="ic">
+            {k === 'screen' && <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="12" rx="2"/><line x1="9" y1="20" x2="15" y2="20"/></svg>}
+            {k === 'camera' && <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="10.5" r="2.5"/><path d="M7.5 18 a5.5 5.5 0 0 1 9 0"/></svg>}
+            {k === 'mic' && <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11 a7 7 0 0 0 14 0"/><line x1="12" y1="18" x2="12" y2="21"/></svg>}
+            {k === 'audio' && <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9 h3 l4 -4 v14 l-4 -4 H4 z"/><path d="M15 9 a4.5 4.5 0 0 1 0 6"/></svg>}
+          </span>
+        ))}
+      </div>
+      <div><strong>{t.how.steps[0].title}</strong><p>{t.how.steps[0].text}</p></div>
+    </div>
+    <div class="card step">
+      <span class="num">2</span>
+      <span class="recbtn"><i></i><b>{t.hero.panel.record}</b><kbd>⌘⇧2</kbd></span>
+      <div><strong>{t.how.steps[1].title}</strong><p>{t.how.steps[1].text}</p></div>
+    </div>
+    <div class="card step">
+      <span class="num">3</span>
+      <span class="toast"><Mascot pose="happy" size={24} /><b>{t.hero.notifTitle}</b></span>
+      <div><strong>{t.how.steps[2].title}</strong><p>{t.how.steps[2].text}</p></div>
+    </div>
+  </div>
+  <p class="closing">{t.how.closing}</p>
+</section>
+<style>
+  .how { display: flex; flex-direction: column; gap: 36px; }
+  .head { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  h2 { font-size: clamp(30px, 4.5vw, 40px); line-height: 1.1; font-weight: 750; margin: 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .step { padding: 28px 26px; display: flex; flex-direction: column; gap: 16px; }
+  .num { width: 32px; height: 32px; border-radius: 50%; background: var(--text); color: var(--bg); font-size: 15px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+  .icons { display: flex; gap: 10px; }
+  .ic { width: 40px; height: 40px; border-radius: 11px; background: var(--track); display: inline-flex; align-items: center; justify-content: center; }
+  .recbtn { height: 44px; padding: 0 20px; border-radius: var(--r-full); background: var(--surface); border: 1.5px solid var(--border2); display: inline-flex; align-items: center; gap: 10px; width: fit-content; box-shadow: 0 1px 3px var(--shadow); }
+  .recbtn i { width: 12px; height: 12px; border-radius: 50%; background: var(--exito); }
+  .recbtn b { font-size: 14px; font-weight: 600; }
+  .recbtn kbd { font-family: var(--font-mono); font-size: 11px; color: var(--text2); background: var(--chip); border-radius: 6px; padding: 2px 6px; }
+  .toast { display: inline-flex; align-items: center; gap: 10px; background: var(--track); border-radius: 12px; padding: 9px 13px; width: fit-content; }
+  .toast b { font-size: 12.5px; font-weight: 600; }
+  strong { font-size: 17px; }
+  p { margin: 6px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--text2); }
+  .closing { margin: 0; text-align: center; font-size: 15px; color: var(--text2); }
+</style>

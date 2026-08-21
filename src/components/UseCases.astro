@@ -1,0 +1,32 @@
+---
+import { type Locale } from '../config';
+import { dictionaries } from '../i18n';
+import Mascot from './Mascot.astro';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+const poses = ['neutral', 'focused', 'wave', 'celebrate'] as const;
+---
+<section class="uc">
+  <div class="head">
+    <span class="eyebrow">{t.usecases.eyebrow}</span>
+    <h2>{t.usecases.title}</h2>
+  </div>
+  <div class="grid">
+    {t.usecases.cards.map((c, i) => (
+      <div class="card item">
+        <Mascot pose={poses[i]} size={56} />
+        <div><strong>{c.title}</strong><p>{c.text}</p></div>
+      </div>
+    ))}
+  </div>
+</section>
+<style>
+  .uc { display: flex; flex-direction: column; gap: 36px; }
+  .head { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  h2 { font-size: clamp(30px, 4.5vw, 40px); line-height: 1.1; font-weight: 750; margin: 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .item { padding: 26px 24px; display: flex; flex-direction: column; gap: 14px; }
+  strong { font-size: 16.5px; }
+  p { margin: 6px 0 0; font-size: 14px; line-height: 1.55; color: var(--text2); }
+</style>

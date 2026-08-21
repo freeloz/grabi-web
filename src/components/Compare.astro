@@ -1,0 +1,61 @@
+---
+/* Honest comparison — Grabi column highlighted with tint-rec; the "editing"
+   and "cloud" rows deliberately favor others, plus the honest note below.
+   Mobile: horizontal scroll (design decision from the wireframe). */
+import { type Locale } from '../config';
+import { dictionaries } from '../i18n';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+const products = ['OBS', 'Loom', 'Screen Studio', 'CleanShot X'];
+---
+<section id="comparativa" class="cmp">
+  <div class="head">
+    <span class="eyebrow">{t.compare.eyebrow}</span>
+    <h2>{t.compare.title}</h2>
+  </div>
+  <div class="scroll card">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col"><span class="sr">Feature</span></th>
+          <th scope="col" class="grabi">
+            <svg viewBox="0 0 96 96" width="18" height="18" aria-hidden="true"><circle cx="48" cy="48" r="40" fill="var(--rec)"/><circle cx="36" cy="44" r="6.5" fill="var(--bg)"/><circle cx="60" cy="44" r="6.5" fill="var(--bg)"/></svg>
+            Grabi
+          </th>
+          {products.map((p) => <th scope="col">{p}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {t.compare.rows.map((row) => (
+          <tr>
+            <th scope="row">{row.label}</th>
+            {row.cells.map((cell, i) => (
+              <td class:list={[{ grabi: i === 0, ok: cell.startsWith('✓'), no: cell.startsWith('✕') }]}>{cell}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="note">{t.compare.note}</p>
+</section>
+<style>
+  .cmp { display: flex; flex-direction: column; gap: 28px; }
+  .head { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  h2 { font-size: clamp(30px, 4.5vw, 40px); line-height: 1.1; font-weight: 750; margin: 0; }
+  .scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 860px; font-size: 13px; }
+  thead th { padding: 14px 12px; font-weight: 600; color: var(--text2); text-align: center; }
+  thead th:first-child { text-align: left; padding-left: 18px; }
+  thead th.grabi { font-weight: 700; color: var(--text); }
+  thead th.grabi svg { vertical-align: -3px; margin-right: 6px; }
+  tbody th { padding: 12px 18px; border-top: 1px solid var(--divider); color: var(--text2); font-weight: 400; text-align: left; }
+  tbody tr:first-child th, tbody tr:first-child td { border-top: 1px solid var(--border); }
+  td { padding: 12px; border-top: 1px solid var(--divider); text-align: center; }
+  td.grabi { background: var(--tint-rec); font-weight: 600; }
+  td.ok:not(.grabi) { color: var(--exito); font-weight: 700; }
+  td.no:not(.grabi) { color: var(--text2); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .note { margin: 0 auto; font-size: 13.5px; line-height: 1.6; color: var(--text2); max-width: 760px; text-align: center; }
+</style>

@@ -1,0 +1,31 @@
+---
+/* Native <details> — works without JS, per wireframe. */
+import { type Locale } from '../config';
+import { dictionaries } from '../i18n';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+---
+<section id="faq" class="faq">
+  <div class="head">
+    <span class="eyebrow">{t.faq.eyebrow}</span>
+    <h2>{t.faq.title}</h2>
+  </div>
+  <div class="list">
+    {t.faq.items.map((item) => (
+      <details>
+        <summary>{item.q}</summary>
+        <p>{item.a}</p>
+      </details>
+    ))}
+  </div>
+</section>
+<style>
+  .faq { display: flex; flex-direction: column; gap: 28px; }
+  .head { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  h2 { font-size: clamp(30px, 4.5vw, 40px); line-height: 1.1; font-weight: 750; margin: 0; }
+  .list { max-width: 760px; width: 100%; margin: 0 auto; }
+  details { border-bottom: 1px solid var(--border); }
+  summary { font-size: 16px; font-weight: 600; padding: 16px 4px; cursor: pointer; }
+  p { margin: 0 0 18px; padding: 0 4px; font-size: 14.5px; line-height: 1.6; color: var(--text2); }
+</style>
