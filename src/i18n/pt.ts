@@ -134,7 +134,7 @@ const pt: Dict = {
     title: 'Changelog',
     intro: 'O que mudou em cada versão, sem jargão. O importante primeiro.',
     entries: [
-      { version: 'v0.1.2', date: '21 ago 2026', notes: [
+      { version: 'v0.1.3', date: '21 ago 2026', notes: [
         'O Grabi agora fala 5 idiomas: inglês, espanhol, português, francês e alemão — segue o idioma do seu Mac sozinho.',
         'Controles ao vivo na pílula: silencie o microfone ou desligue a câmera no meio da gravação (a luz da câmera apaga de verdade).',
         'As miniaturas do seletor de telas e janelas agora aparecem na hora.',

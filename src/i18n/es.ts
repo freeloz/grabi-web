@@ -134,7 +134,7 @@ const es: Dict = {
     title: 'Changelog',
     intro: 'Lo nuevo de cada versión, contado sin jerga. Lo importante primero.',
     entries: [
-      { version: 'v0.1.2', date: '21 ago 2026', notes: [
+      { version: 'v0.1.3', date: '21 ago 2026', notes: [
         'Grabi ahora habla 5 idiomas: inglés, español, portugués, francés y alemán — sigue el idioma de tu Mac solo.',
         'Controles en vivo en la pastilla: silencia el micrófono o apaga la cámara a mitad de grabación (la luz de la cámara se apaga de verdad).',
         'Las miniaturas del selector de pantallas y ventanas ahora aparecen al instante.',

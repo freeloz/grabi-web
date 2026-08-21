@@ -40,7 +40,7 @@ const home = pathFor(lang);
     });
   });
   // GitHub stars with graceful static fallback (wireframe: isla con fallback).
-  if (repoLive) fetch('https://api.github.com/repos/freeloz/grabi')
+  if (repoLive) fetch('https://api.github.com/repos/freeloz/grabi-macos')
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (d) {
       if (d && d.stargazers_count) {

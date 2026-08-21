@@ -5,19 +5,17 @@ export const SITE = {
   url: 'https://grabi.net',
   email: 'hola@grabi.net',
 
-  // Download — TODO: point to the public GitHub release when it exists.
-  downloadUrl: import.meta.env.PUBLIC_DOWNLOAD_URL ?? 'https://github.com/freeloz/grabi/releases/latest',
-  version: '0.1.2',
+  // Download — served from R2 behind dl.grabi.net; `latest/` always points
+  // to the newest DMG and publishes its SHA-256 alongside (.sha256 + latest.json).
+  downloadUrl: import.meta.env.PUBLIC_DOWNLOAD_URL ?? 'https://dl.grabi.net/macos/latest/Grabi.dmg',
+  version: '0.1.3',
   size: '~2 MB',
   requires: 'macOS 13+',
 
-  // TODO: flip to true when freeloz/grabi goes public — enables the live
-  // star counter (until then the fetch would 404 and dirty the console).
-  githubRepoLive: false,
-  // TODO: flip to the public app repo when it opens (design: freeloz/grabi).
-  githubApp: 'https://github.com/freeloz/grabi',
+  githubRepoLive: true,
+  githubApp: 'https://github.com/freeloz/grabi-macos',
   githubWeb: 'https://github.com/freeloz/grabi-web',
-  githubIssues: 'https://github.com/freeloz/grabi/issues/new/choose',
+  githubIssues: 'https://github.com/freeloz/grabi-macos/issues/new',
 
   // Donations — TODO: real handles.
   coffee: 'https://buymeacoffee.com/freeloz',

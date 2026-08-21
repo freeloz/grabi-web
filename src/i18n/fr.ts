@@ -134,7 +134,7 @@ const fr: Dict = {
     title: 'Changelog',
     intro: 'Les nouveautés de chaque version, sans jargon. L’important d’abord.',
     entries: [
-      { version: 'v0.1.2', date: '21 août 2026', notes: [
+      { version: 'v0.1.3', date: '21 août 2026', notes: [
         'Grabi parle désormais 5 langues : anglais, espagnol, portugais, français et allemand — il suit la langue de votre Mac tout seul.',
         'Contrôles en direct dans la pilule : coupez le micro ou éteignez la caméra en pleine session (le voyant de la caméra s’éteint vraiment).',
         'Les miniatures du sélecteur d’écrans et de fenêtres apparaissent maintenant instantanément.',

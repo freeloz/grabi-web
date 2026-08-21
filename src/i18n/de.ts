@@ -134,7 +134,7 @@ const de: Dict = {
     title: 'Changelog',
     intro: 'Was in jeder Version neu ist — ohne Fachchinesisch. Das Wichtige zuerst.',
     entries: [
-      { version: 'v0.1.2', date: '21. Aug 2026', notes: [
+      { version: 'v0.1.3', date: '21. Aug 2026', notes: [
         'Grabi spricht jetzt 5 Sprachen: Englisch, Spanisch, Portugiesisch, Französisch und Deutsch — es folgt automatisch der Sprache deines Mac.',
         'Live-Steuerung in der Pille: Mikrofon stummschalten oder Kamera mitten in der Aufnahme ausschalten (das Kameralicht geht wirklich aus).',
         'Die Vorschaubilder im Bildschirm- und Fensterwähler erscheinen jetzt sofort.',
