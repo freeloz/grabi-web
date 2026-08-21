@@ -1,0 +1,155 @@
+/* ============================================================
+   Grabi design tokens — source of truth: design/ (brand manual
+   Fase 1-2 + landing Fase 5B). NOTHING outside this file may
+   hardcode colors, spacing, radii, shadows or type.
+   Light is the base; dark overrides via [data-theme="dark"]
+   (manual toggle) or prefers-color-scheme when no explicit
+   choice is stored.
+   ============================================================ */
+:root {
+  /* Surfaces & text */
+  --bg: #FAF7F1;
+  --surface: #FFFFFF;
+  --track: #F3EEE3;
+  --text: #26221C;
+  --text2: #5C5548;
+  --border: #EAE3D6;
+  --border2: #D8CDB8;
+  --divider: #F3EEE3;
+  --chip: #F3EEE3;
+  --shadow: rgba(38, 34, 28, 0.14);
+
+  /* The red rule: --rec only ever means "recording" (dot, badge, mascot);
+     --brand is the interactive red (buttons, links). */
+  --brand: #C93A32;
+  --brandh: #B33028;
+  --onbrand: #FFFFFF;
+  --rec: #E5483F;
+  --exito: #2E7D4C;
+  --tint-rec: rgba(229, 72, 63, 0.08);
+
+  /* Fixed-ink surfaces (privacy section, REC badge, floating pill):
+     deliberately identical in both themes, per Fase 5B. */
+  --ink: #26221C;
+  --ink-soft: #2E2A23;
+  --ink-border: #3A342C;
+  --ivory: #F2EDE4;
+  --ivory-dim: #B3AA9B;
+  --rec-on-ink: #FF6B5E;
+  --exito-on-ink: #6FCE96;
+  --warm-card: #FFF9EE;
+  --warm-card-border: #EAD9BC;
+
+  /* Type */
+  --font-display: 'Bricolage Grotesque', 'Avenir Next', 'Helvetica Neue', sans-serif;
+  --font-body: 'Instrument Sans', -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Radii (manual: xs 6 · sm 10 · md 14 · lg 20 · full) */
+  --r-xs: 6px; --r-sm: 10px; --r-md: 14px; --r-lg: 20px; --r-xl: 18px; --r-full: 999px;
+
+  /* Spacing scale of 4 */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s6: 24px; --s8: 32px; --s12: 48px; --s16: 64px;
+
+  /* Motion (manual: 120/200/320/1600ms, standard easing) */
+  --t-fast: 120ms; --t-base: 200ms; --t-slow: 320ms; --t-pulse: 1600ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+[data-theme="dark"] {
+  --bg: #1B1916;
+  --surface: #242019;
+  --track: #2E2A23;
+  --text: #F2EDE4;
+  --text2: #B3AA9B;
+  --border: #3A342C;
+  --border2: #4A4438;
+  --divider: #26221C;
+  --chip: #2E2A23;
+  --shadow: rgba(0, 0, 0, 0.45);
+  --brand: #FF6B5E;
+  --brandh: #FF8073;
+  --onbrand: #1B1916;
+  --rec: #FF6B5E;
+  --exito: #6FCE96;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1B1916;
+    --surface: #242019;
+    --track: #2E2A23;
+    --text: #F2EDE4;
+    --text2: #B3AA9B;
+    --border: #3A342C;
+    --border2: #4A4438;
+    --divider: #26221C;
+    --chip: #2E2A23;
+    --shadow: rgba(0, 0, 0, 0.45);
+    --brand: #FF6B5E;
+    --brandh: #FF8073;
+    --onbrand: #1B1916;
+    --rec: #FF6B5E;
+    --exito: #6FCE96;
+  }
+}
+
+/* ============ Base ============ */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+a { color: var(--brand); }
+img, svg, video { max-width: 100%; }
+
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
+
+/* Accessible focus ring — never removed without replacement (manual §10) */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: var(--r-xs);
+}
+
+@keyframes recPulse { 0% { opacity: .55; } 50% { opacity: .08; } 100% { opacity: .55; } }
+@keyframes drawFrame { to { stroke-dashoffset: 0; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Shared primitives from the design system */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 11px;
+  height: 56px; padding: 0 32px; border: 0; cursor: pointer;
+  border-radius: var(--r-full);
+  background: var(--brand); color: var(--onbrand);
+  font-family: var(--font-body); font-size: 17px; font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 18px var(--shadow);
+  transition: background var(--t-fast) var(--ease);
+}
+.btn-primary:hover { background: var(--brandh); color: var(--onbrand); }
+
+.eyebrow {
+  font-size: 13px; letter-spacing: .12em; font-weight: 600; color: var(--brand);
+  text-transform: uppercase;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+}
+.container { max-width: 1120px; margin: 0 auto; padding-inline: var(--s8); }
+.container-narrow { max-width: 1040px; margin: 0 auto; padding-inline: var(--s8); }
+@media (max-width: 640px) {
+  .container, .container-narrow { padding-inline: 20px; }
+}
