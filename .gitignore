@@ -1,0 +1,17 @@
+# Build output
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# macOS
+.DS_Store
+
+# Environment — secrets NEVER live in the repo (analytics IDs, tokens…)
+.env
+.env.*
+!.env.example
+
+# Wrangler local state
+.wrangler/
