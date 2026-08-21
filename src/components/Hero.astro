@@ -43,14 +43,14 @@ const h = t.hero;
       <div class="screen">
         <div class="menubar"><b>&#63743;</b><b>Keynote</b><span>File</span><span>Edit</span><span>Help</span><i></i><span>9:41</span></div>
         <div class="slides">
-          <div class="slides-bar"><span class="tl red sm"></span><span class="tl yellow sm"></span><span class="tl green sm"></span><span class="stitle">Photosynthesis — class 4</span></div>
+          <div class="slides-bar"><span class="tl red sm"></span><span class="tl yellow sm"></span><span class="tl green sm"></span><span class="stitle">{h.slide.window}</span></div>
           <div class="slides-body">
-            <strong>What does a plant need?</strong>
+            <strong>{h.slide.title}</strong>
             <div class="cols">
               <div class="list">
-                <span><i style="background:#F2B04A"></i>Sunlight</span>
-                <span><i style="background:#4A90D9"></i>Water</span>
-                <span><i style="background:#58B368"></i>CO₂</span>
+                <span><i style="background:#F2B04A"></i>{h.slide.sun}</span>
+                <span><i style="background:#4A90D9"></i>{h.slide.water}</span>
+                <span><i style="background:#58B368"></i>{h.slide.co2}</span>
               </div>
               <div class="bars"><span style="height:38%;background:#F2B04A"></span><span style="height:62%;background:#4A90D9"></span><span style="height:85%;background:#58B368"></span></div>
             </div>

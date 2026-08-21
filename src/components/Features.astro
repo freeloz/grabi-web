@@ -47,6 +47,9 @@ const sources = [
     <div class="prev">
       <div class="prev-window">
         <div class="pw-bar"><i class="d r"></i><i class="d y"></i><i class="d g"></i><span>{f.blocks[1].eyebrow}</span></div>
+        <div class="pw-body" aria-hidden="true">
+          <i style="width:62%"></i><i style="width:88%"></i><i style="width:74%"></i><i style="width:80%"></i><i style="width:45%"></i>
+        </div>
       </div>
       <span class="shape-seg">
         <span class="seg on"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/></svg></span>
@@ -159,7 +162,10 @@ const sources = [
   .pw-bar { display: flex; align-items: center; gap: 5px; padding: 6px 9px; background: #F1ECE2; border-bottom: 1px solid #E3DCCD; }
   .d { width: 8px; height: 8px; border-radius: 50%; }
   .d.r { background: #FF5F57; } .d.y { background: #FEBC2E; } .d.g { background: #28C840; }
-  .pw-bar span { flex: 1; text-align: center; font-size: 8.5px; font-weight: 600; color: #7A6F5C; }
+  .pw-bar span { flex: 1; text-align: center; font-size: 8.5px; font-weight: 600; color: #7A6F5C; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pw-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+  .pw-body i { height: 7px; border-radius: 4px; background: #E3DCCD; display: block; }
+  .pw-body i:first-child { height: 10px; background: #2E2318; opacity: .85; }
   .shape-seg { position: absolute; top: 14px; left: 16px; display: inline-flex; background: var(--surface); border-radius: 10px; padding: 3px; gap: 2px; box-shadow: 0 4px 14px var(--shadow); }
   .seg { padding: 6px 12px; border-radius: 8px; color: var(--text2); display: inline-flex; }
   .seg.on { background: var(--track); color: var(--text); }

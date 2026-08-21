@@ -26,6 +26,7 @@ const de: Dict = {
     selfie: 'dein Selfie',
     panel: { screen: 'Bildschirm', camera: 'Kamera', mic: 'Mikrofon', system: 'Systemaudio', record: 'Aufnehmen' },
     recBadgeLabel: 'Aufnahme',
+    slide: { window: 'Die Photosynthese — Stunde 4', title: 'Was braucht eine Pflanze?', sun: 'Sonnenlicht', water: 'Wasser', co2: 'CO₂' },
   },
   trust: ['Für immer gratis', 'Ohne Limits', 'Ohne Konto', 'Ohne Wasserzeichen', 'Open Source', '100% nativ'],
   how: {

@@ -7,6 +7,7 @@ export interface Dict {
     notifTitle: string; notifMeta: string; selfie: string;
     panel: { screen: string; camera: string; mic: string; system: string; record: string };
     recBadgeLabel: string;
+    slide: { window: string; title: string; sun: string; water: string; co2: string };
   };
   trust: string[];
   how: { eyebrow: string; title: string; steps: { title: string; text: string }[]; closing: string };

@@ -27,6 +27,7 @@ const en: Dict = {
     selfie: 'your selfie',
     panel: { screen: 'Screen', camera: 'Camera', mic: 'Microphone', system: 'System audio', record: 'Record' },
     recBadgeLabel: 'Recording',
+    slide: { window: 'Photosynthesis — class 4', title: 'What does a plant need?', sun: 'Sunlight', water: 'Water', co2: 'CO₂' },
   },
   trust: ['Free forever', 'No limits', 'No account', 'No watermark', 'Open source', '100% native'],
   how: {

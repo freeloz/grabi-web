@@ -26,6 +26,7 @@ const pt: Dict = {
     selfie: 'sua selfie',
     panel: { screen: 'Tela', camera: 'Câmera', mic: 'Microfone', system: 'Áudio do sistema', record: 'Gravar' },
     recBadgeLabel: 'Gravando',
+    slide: { window: 'A fotossíntese — aula 4', title: 'O que uma planta precisa?', sun: 'Luz solar', water: 'Água', co2: 'CO₂ do ar' },
   },
   trust: ['Grátis para sempre', 'Sem limites', 'Sem conta', 'Sem marca d\'água', 'Open source', '100% nativo'],
   how: {
