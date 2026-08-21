@@ -8,6 +8,7 @@ export default defineConfig({
   site: 'https://grabi.net',
   output: 'static',
   trailingSlash: 'never',
+  build: { format: 'file' },
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es', 'pt', 'fr', 'de'],

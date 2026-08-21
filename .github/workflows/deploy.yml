@@ -1,0 +1,62 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Secrets required (Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_API_TOKEN  — API token with "Workers Scripts: Edit" on Freeloz SAS
+#   PUBLIC_GA4_ID         — optional; GA4 measurement ID (analytics off if absent)
+#   PUBLIC_CLARITY_ID     — optional; Microsoft Clarity project ID
+# No secret ever lives in the repo.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write # preview URL comment
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build
+        run: npm run build
+        env:
+          PUBLIC_GA4_ID: ${{ secrets.PUBLIC_GA4_ID }}
+          PUBLIC_CLARITY_ID: ${{ secrets.PUBLIC_CLARITY_ID }}
+
+      - name: Deploy to production
+        if: github.event_name == 'push'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy
+
+      - name: Upload preview version (PR)
+        if: github.event_name == 'pull_request'
+        id: preview
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: versions upload
+
+      - name: Comment preview URL on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const out = `${{ steps.preview.outputs.command-output }}`;
+            const url = (out.match(/https:\/\/[^\s]+workers\.dev[^\s]*/) || [])[0];
+            if (!url) return;
+            const marker = '<!-- grabi-preview -->';
+            const body = `${marker}\n🔴 **Preview deployed:** ${url}`;
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo, issue_number: context.issue.number });
+            const prev = comments.find(c => c.body.includes(marker));
+            if (prev) await github.rest.issues.updateComment({ ...context.repo, comment_id: prev.id, body });
+            else await github.rest.issues.createComment({ ...context.repo, issue_number: context.issue.number, body });

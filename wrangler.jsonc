@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "grabi-web",
+  "compatibility_date": "2026-08-01",
+  "account_id": "0ef61977f8d1fc1e483034fdbde55f9e", // Freeloz SAS
+
+  // Assets-only Worker (recommended path for static Astro sites):
+  // no server code — Cloudflare serves dist/ from the edge.
+  // _headers (security/CSP/cache) and 404.html are honored automatically.
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+
+  // Version preview URLs for PR deploys (<version>-grabi-web.<subdomain>.workers.dev)
+  "preview_urls": true,
+
+  // Production domains (zone grabi.net in this Cloudflare account).
+  // www serves too; a Redirect Rule 301s www → apex (canonical).
+  "routes": [
+    { "pattern": "grabi.net", "custom_domain": true },
+    { "pattern": "www.grabi.net", "custom_domain": true }
+  ]
+}
