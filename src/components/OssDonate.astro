@@ -5,8 +5,9 @@ import Mascot from './Mascot.astro';
 interface Props { lang: Locale }
 const { lang } = Astro.props;
 const t = dictionaries[lang];
+const hasDonate = Boolean(SITE.coffee || SITE.sponsors);
 ---
-<section class="pair">
+<section class={`pair ${hasDonate ? '' : 'solo'}`}>
   <div class="card oss">
     <span class="eyebrow">{t.oss.eyebrow}</span>
     <h3>{t.oss.title}</h3>
@@ -22,17 +23,20 @@ const t = dictionaries[lang];
       <a class="ghost" href={SITE.githubIssues} data-event="github_click" data-section="oss-bug" rel="noopener" target="_blank">{t.oss.bug}</a>
     </div>
   </div>
-  <div class="donate">
-    <Mascot pose="happy" size={56} />
-    <h3>{t.donate.title}</h3>
-    <div class="btns">
-      <a class="coffee" href={SITE.coffee} data-event="donate_click" data-section="coffee" rel="noopener" target="_blank">{t.donate.coffee}</a>
-      <a class="sponsor" href={SITE.sponsors} data-event="donate_click" data-section="sponsors" rel="noopener" target="_blank">{t.donate.sponsors}</a>
+  {hasDonate && (
+    <div class="donate">
+      <Mascot pose="happy" size={56} />
+      <h3>{t.donate.title}</h3>
+      <div class="btns">
+        {SITE.coffee && <a class="coffee" href={SITE.coffee} data-event="donate_click" data-section="coffee" rel="noopener" target="_blank">{t.donate.coffee}</a>}
+        {SITE.sponsors && <a class="sponsor" href={SITE.sponsors} data-event="donate_click" data-section="sponsors" rel="noopener" target="_blank">{t.donate.sponsors}</a>}
+      </div>
     </div>
-  </div>
+  )}
 </section>
 <style>
   .pair { display: grid; grid-template-columns: 1.3fr 1fr; gap: 18px; }
+  .pair.solo { grid-template-columns: 1fr; }
   @media (max-width: 820px) { .pair { grid-template-columns: 1fr; } }
   .oss { padding: 32px; display: flex; flex-direction: column; gap: 16px; }
   h3 { font-size: clamp(22px, 3vw, 26px); font-weight: 740; margin: 0; }

@@ -134,6 +134,10 @@ const es: Dict = {
     title: 'Changelog',
     intro: 'Lo nuevo de cada versión, contado sin jerga. Lo importante primero.',
     entries: [
+      { version: 'v0.1.4', date: '21 ago 2026', notes: [
+        'Grabi ahora se actualiza solo: busca una vez al día, sin molestar, y las novedades se instalan con un clic. Esta es la última versión que descargas a mano.',
+        '«Reportar un problema» en Ajustes abre un reporte pre-llenado con tu versión de la app, macOS y chip — sin buscar nada.',
+      ]},
       { version: 'v0.1.3', date: '21 ago 2026', notes: [
         'Grabi ahora habla 5 idiomas: inglés, español, portugués, francés y alemán — sigue el idioma de tu Mac solo.',
         'Controles en vivo en la pastilla: silencia el micrófono o apaga la cámara a mitad de grabación (la luz de la cámara se apaga de verdad).',

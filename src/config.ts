@@ -8,7 +8,7 @@ export const SITE = {
   // Download — served from R2 behind dl.grabi.net; `latest/` always points
   // to the newest DMG and publishes its SHA-256 alongside (.sha256 + latest.json).
   downloadUrl: import.meta.env.PUBLIC_DOWNLOAD_URL ?? 'https://dl.grabi.net/macos/latest/Grabi.dmg',
-  version: '0.1.3',
+  version: '0.1.4',
   size: '~2 MB',
   requires: 'macOS 13+',
 
@@ -17,14 +17,16 @@ export const SITE = {
   githubWeb: 'https://github.com/freeloz/grabi-web',
   githubIssues: 'https://github.com/freeloz/grabi-macos/issues/new',
 
-  // Donations — TODO: real handles.
-  coffee: 'https://buymeacoffee.com/freeloz',
-  sponsors: 'https://github.com/sponsors/freeloz',
+  // Donations — TODO: paste the real URLs when the accounts exist.
+  // Empty string = the UI hides that button/link (never a dead link).
+  coffee: '',        // Buy Me a Coffee
+  sponsors: '',      // GitHub Sponsors
 
   // Social — TODO: real profiles (design lists YouTube · X · Mastodon).
-  youtube: 'https://youtube.com/@grabi_app',
-  twitter: 'https://x.com/grabi_app',
-  mastodon: 'https://mastodon.social/@grabi',
+  // Empty string = hidden in the footer.
+  youtube: '',
+  twitter: '',
+  mastodon: '',
 
   ga4: import.meta.env.PUBLIC_GA4_ID as string | undefined,
   clarity: import.meta.env.PUBLIC_CLARITY_ID as string | undefined,

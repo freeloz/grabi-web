@@ -27,14 +27,14 @@ const home = pathFor(lang);
       <a href={SITE.githubApp} data-event="github_click" data-section="footer" rel="noopener" target="_blank">{t.footer.github}</a>
       <a href={pathFor(lang, 'press')}>{t.footer.press}</a>
       <a href={SITE.githubIssues} rel="noopener" target="_blank">{t.footer.bug}</a>
-      <a href={SITE.coffee} data-event="donate_click" data-section="footer" rel="noopener" target="_blank">{t.footer.donate}</a>
+      {SITE.coffee && <a href={SITE.coffee} data-event="donate_click" data-section="footer" rel="noopener" target="_blank">{t.footer.donate}</a>}
     </nav>
     <nav class="col" aria-label={t.footer.contact}>
       <strong>{t.footer.contact}</strong>
       <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-      <a href={SITE.youtube} rel="noopener" target="_blank">YouTube</a>
-      <a href={SITE.twitter} rel="noopener" target="_blank">X / Twitter</a>
-      <a href={SITE.mastodon} rel="me noopener" target="_blank">Mastodon</a>
+      {SITE.youtube && <a href={SITE.youtube} rel="noopener" target="_blank">YouTube</a>}
+      {SITE.twitter && <a href={SITE.twitter} rel="noopener" target="_blank">X / Twitter</a>}
+      {SITE.mastodon && <a href={SITE.mastodon} rel="me noopener" target="_blank">Mastodon</a>}
     </nav>
   </div>
   <div class="container legal">

@@ -134,6 +134,10 @@ const fr: Dict = {
     title: 'Changelog',
     intro: 'Les nouveautés de chaque version, sans jargon. L’important d’abord.',
     entries: [
+      { version: 'v0.1.4', date: '21 août 2026', notes: [
+        "Grabi se met désormais à jour tout seul : une vérification discrète par jour, et les nouveautés s'installent en un clic. C'est la dernière version que vous téléchargez à la main.",
+        "« Signaler un problème » dans les Réglages ouvre un rapport pré-rempli avec votre version de l'app, macOS et la puce — rien à chercher.",
+      ]},
       { version: 'v0.1.3', date: '21 août 2026', notes: [
         'Grabi parle désormais 5 langues : anglais, espagnol, portugais, français et allemand — il suit la langue de votre Mac tout seul.',
         'Contrôles en direct dans la pilule : coupez le micro ou éteignez la caméra en pleine session (le voyant de la caméra s’éteint vraiment).',

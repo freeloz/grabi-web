@@ -135,6 +135,10 @@ const en: Dict = {
     title: 'Changelog',
     intro: "What's new in every release, jargon-free. The important stuff first.",
     entries: [
+      { version: 'v0.1.4', date: 'Aug 21, 2026', notes: [
+        'Grabi now updates itself: a quiet daily check, and new versions install with one click. This is the last version you download by hand.',
+        '“Report a problem” in Settings opens a pre-filled report with your app version, macOS and chip — nothing to look up.',
+      ]},
       { version: 'v0.1.3', date: 'Aug 21, 2026', notes: [
         "Grabi now speaks 5 languages: English, Spanish, Portuguese, French and German — it follows your Mac's language automatically.",
         'Live controls in the pill: mute the microphone or turn the camera off mid-recording (the camera light actually turns off).',

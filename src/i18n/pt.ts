@@ -134,6 +134,10 @@ const pt: Dict = {
     title: 'Changelog',
     intro: 'O que mudou em cada versão, sem jargão. O importante primeiro.',
     entries: [
+      { version: 'v0.1.4', date: '21 ago 2026', notes: [
+        'O Grabi agora se atualiza sozinho: verifica uma vez por dia, sem incomodar, e as novidades se instalam com um clique. Esta é a última versão que você baixa manualmente.',
+        '«Relatar um problema» nos Ajustes abre um relatório pré-preenchido com sua versão do app, macOS e chip — sem procurar nada.',
+      ]},
       { version: 'v0.1.3', date: '21 ago 2026', notes: [
         'O Grabi agora fala 5 idiomas: inglês, espanhol, português, francês e alemão — segue o idioma do seu Mac sozinho.',
         'Controles ao vivo na pílula: silencie o microfone ou desligue a câmera no meio da gravação (a luz da câmera apaga de verdade).',

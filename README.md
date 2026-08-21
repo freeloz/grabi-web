@@ -15,6 +15,15 @@ and open-source screen recorder for macOS, made by [Freeloz](https://github.com/
 
 Lighthouse (mobile, production): **Performance 97 · Accessibility 100 · Best Practices 100 · SEO 100**
 
+## Release architecture
+
+Downloads live on Cloudflare R2 behind **dl.grabi.net**: immutable versioned
+DMGs with published SHA-256 (`/macos/v<version>/…`), a `latest/` pointer, a
+`latest.json` manifest, and the Sparkle **appcast** (`/macos/appcast.xml`)
+that installed apps update from. Everything is regenerated atomically by
+[`scripts/publish-release.sh`](https://github.com/freeloz/grabi-macos/blob/main/scripts/publish-release.sh)
+in grabi-macos; this site only reads `latest.json`.
+
 ## Stack
 
 - [Astro 5](https://astro.build) — fully static output; the only JavaScript
