@@ -11,6 +11,9 @@ export const SITE = {
   size: '~2 MB',
   requires: 'macOS 13+',
 
+  // TODO: flip to true when freeloz/grabi goes public — enables the live
+  // star counter (until then the fetch would 404 and dirty the console).
+  githubRepoLive: false,
   // TODO: flip to the public app repo when it opens (design: freeloz/grabi).
   githubApp: 'https://github.com/freeloz/grabi',
   githubWeb: 'https://github.com/freeloz/grabi-web',

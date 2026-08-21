@@ -64,10 +64,9 @@ const jsonLd = {
   <meta name="twitter:description" content={pageDesc} />
   <meta name="twitter:image" content={`${SITE.url}/og.png`} />
 
-  <!-- Fonts: the two brand families, swap so text never blocks -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet" />
+  <!-- Self-hosted brand fonts: preload the two files every page uses -->
+  <link rel="preload" href="/fonts/bricolagegrotesque-normal-600_800.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/instrumentsans-normal-400_700.woff2" as="font" type="font/woff2" crossorigin />
 
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 

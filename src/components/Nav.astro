@@ -27,7 +27,7 @@ const home = pathFor(lang);
     <a class="dl" href={SITE.downloadUrl} data-event="download_click" data-section="nav" rel="noopener">{t.nav.download}</a>
   </div>
 </nav>
-<script is:inline>
+<script is:inline define:vars={{ repoLive: SITE.githubRepoLive }}>
   // Theme toggle: explicit choice wins over system, persisted.
   document.querySelectorAll('.theme').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -40,7 +40,7 @@ const home = pathFor(lang);
     });
   });
   // GitHub stars with graceful static fallback (wireframe: isla con fallback).
-  fetch('https://api.github.com/repos/freeloz/grabi')
+  if (repoLive) fetch('https://api.github.com/repos/freeloz/grabi')
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (d) {
       if (d && d.stargazers_count) {
