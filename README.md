@@ -7,7 +7,13 @@
 The official website for **[Grabi](https://grabi.net)** — the no-drama, free
 and open-source screen recorder for macOS, made by [Freeloz](https://github.com/freeloz).
 
-**https://grabi.net** · English (default) · Español · Português · Français · Deutsch
+**Live at https://grabi.net** · English (default) · [Español](https://grabi.net/es) · [Português](https://grabi.net/pt) · [Français](https://grabi.net/fr) · [Deutsch](https://grabi.net/de)
+
+| Light | Dark |
+|---|---|
+| ![Grabi homepage, light](docs/home-light.jpg) | ![Grabi homepage, dark](docs/home-dark.jpg) |
+
+Lighthouse (mobile, production): **Performance 97 · Accessibility 100 · Best Practices 100 · SEO 100**
 
 ## Stack
 
