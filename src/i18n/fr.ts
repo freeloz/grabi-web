@@ -46,7 +46,7 @@ const fr: Dict = {
       { eyebrow: 'Quatre sources', title: 'Un interrupteur par source. Combinez-les librement.', text: 'Écran, caméra, micro et audio du système. Écran seul, écran + visage, voix seule — vous décidez avec quatre switchs, sans scènes ni mixeurs.' },
       { eyebrow: 'Votre caméra, à votre façon', title: 'Cercle, carré ou rectangle. Où vous voulez.', text: 'Glissez votre caméra dans n’importe quel coin, redimensionnez-la par les coins et changez sa forme en direct — avant et pendant l’enregistrement.' },
       { eyebrow: 'Capturez juste ce qu’il faut', title: 'Tout l’écran, une fenêtre, ou juste un morceau.', text: 'Choisissez ce qui se voit : l’écran entier, une seule app (le reste n’existe pas) ou une zone exacte que vous tracez vous-même.' },
-      { eyebrow: 'La qualité sans péage', title: 'Net jusqu’en 4K. Toujours gratuit.', text: 'Deux modes, point : Standard pour partager léger, Nette jusqu’en 4K à 60 fps pour les tutos où chaque pixel compte. Aucun mode derrière un paiement.' },
+      { eyebrow: 'La qualité sans péage', title: 'Net jusqu’en 4K. Toujours gratuit.', text: 'Deux modes, point : Standard pour partager léger, Nette jusqu’en 4K pour les tutos où chaque pixel compte. Aucun mode derrière un paiement.' },
       { eyebrow: 'Le contrôle sans encombre', title: 'Pause, reprise, stop — sans chercher la fenêtre.', text: 'Une pilule flottante minimale (qui n’apparaît jamais dans votre vidéo) et des raccourcis globaux pour tout contrôler sans interrompre ce que vous montrez.' },
     ],
     shortcutRecord: '⌘⇧2 enregistrer/arrêter',

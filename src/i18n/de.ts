@@ -15,7 +15,7 @@ const de: Dict = {
     title: 'Nimm deinen Bildschirm auf, ganz ohne Drama.',
     sub: 'Alles, wofür Bezahl-Apps monatlich kassieren — Bildschirm, Kamera, Mikrofon und Systemaudio, bis 4K — gratis und einfacher. Ohne Konto, ohne Wasserzeichen.',
     cta: 'Gratis für macOS laden',
-    meta: '~2 MB · macOS 13+ · Apple Silicon & Intel',
+    meta: '~3 MB · macOS 13+ · Apple Silicon & Intel',
     github: 'auf GitHub ansehen ★',
     demoWindow: 'Grabi — Demo',
     demoPlay: 'Demo ansehen · 15 s · kompletter Ablauf',
@@ -46,7 +46,7 @@ const de: Dict = {
       { eyebrow: 'Vier Quellen', title: 'Ein Schalter pro Quelle. Kombiniere frei.', text: 'Bildschirm, Kamera, Mikrofon und Systemaudio. Nur Bildschirm, Bildschirm + Gesicht, nur Stimme — du entscheidest mit vier Schaltern, ohne Szenen und Mischpulte.' },
       { eyebrow: 'Deine Kamera, deine Art', title: 'Kreis, Quadrat oder Rechteck. Wo du willst.', text: 'Zieh deine Kamera in jede Ecke, skaliere sie an den Ecken und ändere ihre Form live — vor und während der Aufnahme.' },
       { eyebrow: 'Nimm nur das Nötige auf', title: 'Der ganze Bildschirm, ein Fenster oder nur ein Stückchen.', text: 'Wähle, was zu sehen ist: der volle Bildschirm, eine einzige App (der Rest existiert nicht) oder ein exakter Bereich, den du selbst aufziehst.' },
-      { eyebrow: 'Qualität ohne Maut', title: 'Scharf bis 4K. Trotzdem gratis.', text: 'Zwei Modi, fertig: Standard zum leichten Teilen, Scharf bis 4K mit 60 fps für Tutorials, in denen jeder Pixel zählt. Keiner davon steckt hinter einer Paywall.' },
+      { eyebrow: 'Qualität ohne Maut', title: 'Scharf bis 4K. Trotzdem gratis.', text: 'Zwei Modi, fertig: Standard zum leichten Teilen, Scharf bis 4K für Tutorials, in denen jeder Pixel zählt. Keiner davon steckt hinter einer Paywall.' },
       { eyebrow: 'Kontrolle ohne Kram', title: 'Pause, weiter, Stopp — ohne das Fenster zu suchen.', text: 'Eine minimale schwebende Pille (die nie in deinem Video landet) und globale Kurzbefehle, um alles zu steuern, ohne zu unterbrechen, was du gerade zeigst.' },
     ],
     shortcutRecord: '⌘⇧2 aufnehmen/stoppen',
@@ -121,7 +121,7 @@ const de: Dict = {
   cta: {
     title: 'Deine nächste Aufnahme ist einen Klick entfernt.',
     button: 'Gratis für macOS laden',
-    meta: '~2 MB · macOS 13+ · für immer gratis',
+    meta: '~3 MB · macOS 13+ · für immer gratis',
   },
   footer: {
     tagline: 'Nimm deinen Bildschirm auf, ganz ohne Drama. Gratis, ohne Limits — und nichts verlässt deinen Mac.',
