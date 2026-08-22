@@ -135,6 +135,11 @@ const de: Dict = {
     title: 'Changelog',
     intro: 'Was in jeder Version neu ist — ohne Fachchinesisch. Das Wichtige zuerst.',
     entries: [
+      { version: 'v0.1.6', date: '23. Aug 2026', notes: [
+        'Grabi hat jetzt ein Fenster: eine normale Mac-App mit Dock-Symbol, Menüs und einem Fenster für Aufnehmen, deine Aufnahmen und Einstellungen.',
+        'Deine Aufnahmen leben in der App: Vorschaubilder, Länge und Größe, mit Abspielen, im Finder zeigen, Kopieren und Löschen.',
+        'Deutlich leichter, und sie öffnet immer dort, wo du sie gelassen hast — zwei Fehler, die Grabi hängend wirken ließen, sind weg.',
+      ]},
       { version: 'v0.1.5', date: '22. Aug 2026', notes: [
         'Universelle App: ein Binary, nativ auf Apple Silicon und Intel.',
         'Sanfterer erster Start: die Installationsanleitung deckt alle macOS-Hinweise ab, auch „App ist beschädigt“, mit der Ein-Zeilen-Lösung.',
