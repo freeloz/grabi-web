@@ -135,6 +135,9 @@ const pt: Dict = {
     title: 'Changelog',
     intro: 'O que mudou em cada versão, sem jargão. O importante primeiro.',
     entries: [
+      { version: 'v0.1.7', date: '23 ago 2026', notes: [
+        'Mais leve enquanto você enquadra: a câmera roda no tamanho e ritmo que a pré-visualização precisa, não em 1080p/30 completos.',
+      ]},
       { version: 'v0.1.6', date: '23 ago 2026', notes: [
         'O Grabi agora tem janela: um app de Mac normal, com ícone no Dock, menus e uma única janela com gravar, suas gravações e ajustes.',
         'Suas gravações moram dentro do app: miniaturas, duração e tamanho, com reproduzir, mostrar no Finder, copiar e apagar.',

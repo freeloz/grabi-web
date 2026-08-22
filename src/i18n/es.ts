@@ -135,6 +135,9 @@ const es: Dict = {
     title: 'Changelog',
     intro: 'Lo nuevo de cada versión, contado sin jerga. Lo importante primero.',
     entries: [
+      { version: 'v0.1.7', date: '23 ago 2026', notes: [
+        'Más ligera mientras encuadras: la cámara corre al tamaño y ritmo que la vista previa necesita, no a 1080p/30 completos.',
+      ]},
       { version: 'v0.1.6', date: '23 ago 2026', notes: [
         'Grabi ahora tiene ventana: una app de Mac normal, con icono en el Dock, menús y una sola ventana con grabar, tus grabaciones y ajustes.',
         'Tus grabaciones viven dentro de la app: miniaturas, duración y peso, con reproducir, mostrar en Finder, copiar y borrar.',

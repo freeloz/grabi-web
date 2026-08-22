@@ -135,6 +135,9 @@ const de: Dict = {
     title: 'Changelog',
     intro: 'Was in jeder Version neu ist — ohne Fachchinesisch. Das Wichtige zuerst.',
     entries: [
+      { version: 'v0.1.7', date: '23. Aug 2026', notes: [
+        'Leichter beim Ausrichten: die Kamera läuft in der Größe und Geschwindigkeit, die die Vorschau braucht, nicht in vollen 1080p/30.',
+      ]},
       { version: 'v0.1.6', date: '23. Aug 2026', notes: [
         'Grabi hat jetzt ein Fenster: eine normale Mac-App mit Dock-Symbol, Menüs und einem Fenster für Aufnehmen, deine Aufnahmen und Einstellungen.',
         'Deine Aufnahmen leben in der App: Vorschaubilder, Länge und Größe, mit Abspielen, im Finder zeigen, Kopieren und Löschen.',
