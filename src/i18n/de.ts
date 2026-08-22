@@ -109,6 +109,7 @@ const de: Dict = {
       { q: 'Gibt es Limits oder ein Wasserzeichen?', a: 'Nein. Nimm so viele Stunden auf, wie du willst, in jeder Qualität — das Video kommt sauber raus, ohne Wasserzeichen, nie.' },
       { q: 'Brauche ich ein Konto?', a: 'Nein. App laden, öffnen, aufnehmen. Ohne Registrierung, ohne E-Mail, ohne Sales-Onboarding.' },
       { q: 'Welche macOS-Versionen werden unterstützt?', a: 'macOS 13 Ventura oder neuer. Das Systemaudio nutzt die native API von macOS 13+ — deshalb dieses Minimum.' },
+      { q: 'macOS sagt, Grabi sei „beschädigt“, oder die App öffnet nie?', a: 'Das ist der macOS-Hinweis für Beta-Apps ohne Apple-Notarisierung (kommt mit dem öffentlichen Release) — Grabi ist in Ordnung. Lösung: Systemeinstellungen → Datenschutz & Sicherheit → „Trotzdem öffnen“. Fehlt dieser Knopf, öffne das Terminal und füge ein: xattr -cr /Applications/Grabi.app — das entfernt nur die Download-Markierung, sonst nichts.' },
       { q: 'Läuft es auf Apple Silicon und Intel?', a: 'Ja, es ist ein Universal Binary: nativ auf beiden, mit demselben ~2-MB-Installer.' },
       { q: 'Und Windows oder Linux?', a: 'Stehen auf der Roadmap. Grabi ist nativ auf macOS geboren; wir wollen Windows und Linux mit derselben Qualität erreichen, nicht mit einem hastigen Port.' },
       { q: 'Wo werden meine Videos gespeichert?', a: 'Auf deinem Mac, im Grabi-Ordner unter Filme (änderbar). Nie auf unseren Servern — wir haben keine.' },
@@ -134,6 +135,10 @@ const de: Dict = {
     title: 'Changelog',
     intro: 'Was in jeder Version neu ist — ohne Fachchinesisch. Das Wichtige zuerst.',
     entries: [
+      { version: 'v0.1.5', date: '22. Aug 2026', notes: [
+        'Universelle App: ein Binary, nativ auf Apple Silicon und Intel.',
+        'Sanfterer erster Start: die Installationsanleitung deckt alle macOS-Hinweise ab, auch „App ist beschädigt“, mit der Ein-Zeilen-Lösung.',
+      ]},
       { version: 'v0.1.4', date: '21. Aug 2026', notes: [
         'Grabi aktualisiert sich jetzt selbst: einmal am Tag ganz leise nachschauen, Neuigkeiten installieren sich mit einem Klick. Das ist die letzte Version, die du von Hand herunterlädst.',
         '„Ein Problem melden“ in den Einstellungen öffnet einen vorausgefüllten Bericht mit App-Version, macOS und Chip — nichts zum Nachschlagen.',

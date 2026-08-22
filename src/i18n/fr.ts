@@ -109,6 +109,7 @@ const fr: Dict = {
       { q: 'Y a-t-il des limites ou un filigrane ?', a: 'Non. Enregistrez autant d’heures que vous voulez, à la qualité que vous voulez, et la vidéo sort propre — sans filigrane, jamais.' },
       { q: 'Faut-il créer un compte ?', a: 'Non. Vous téléchargez l’app, vous l’ouvrez, vous enregistrez. Sans inscription, sans e-mail, sans onboarding commercial.' },
       { q: 'Quelles versions de macOS sont prises en charge ?', a: 'macOS 13 Ventura ou plus récent. L’audio du système utilise l’API native de macOS 13+, d’où ce minimum.' },
+      { q: 'macOS dit que Grabi « est endommagée » ou elle ne s’ouvre jamais ?', a: 'C’est l’avertissement de macOS pour les apps bêta pas encore notariées par Apple (ça viendra avec la version publique) — Grabi va bien. Solution : Réglages Système → Confidentialité et sécurité → « Ouvrir quand même ». Si ce bouton n’apparaît pas, ouvrez le Terminal et collez : xattr -cr /Applications/Grabi.app — ça retire la marque de téléchargement, rien d’autre.' },
       { q: 'Ça marche sur Apple Silicon et Intel ?', a: 'Oui, c’est un binaire universel : natif sur les deux, avec le même installateur de ~2 Mo.' },
       { q: 'Et Windows ou Linux ?', a: 'C’est sur la roadmap. Grabi est né natif sur macOS ; nous voulons arriver sur Windows et Linux avec la même qualité, pas avec un portage bâclé.' },
       { q: 'Où sont stockées mes vidéos ?', a: 'Sur votre Mac, dans le dossier Grabi de Vidéos (modifiable). Jamais sur nos serveurs — nous n’en avons pas.' },
@@ -134,6 +135,10 @@ const fr: Dict = {
     title: 'Changelog',
     intro: 'Les nouveautés de chaque version, sans jargon. L’important d’abord.',
     entries: [
+      { version: 'v0.1.5', date: '22 août 2026', notes: [
+        'App universelle : un seul binaire, natif sur Apple Silicon et Intel.',
+        'Premier lancement plus fluide : le guide d’installation couvre tous les avertissements de macOS, y compris « app endommagée », avec la solution en une ligne.',
+      ]},
       { version: 'v0.1.4', date: '21 août 2026', notes: [
         "Grabi se met désormais à jour tout seul : une vérification discrète par jour, et les nouveautés s'installent en un clic. C'est la dernière version que vous téléchargez à la main.",
         "« Signaler un problème » dans les Réglages ouvre un rapport pré-rempli avec votre version de l'app, macOS et la puce — rien à chercher.",

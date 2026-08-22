@@ -109,6 +109,7 @@ const es: Dict = {
       { q: '¿Hay límites o marca de agua?', a: 'No. Graba las horas que quieras, en la calidad que quieras, y el video sale limpio — sin marca de agua, nunca.' },
       { q: '¿Necesito crear una cuenta?', a: 'No. Descargas la app, la abres y grabas. Sin registro, sin correo, sin onboarding de ventas.' },
       { q: '¿Qué versiones de macOS soporta?', a: 'macOS 13 Ventura o superior. El audio del sistema usa la API nativa de macOS 13+, por eso ese es el mínimo.' },
+      { q: '¿macOS dice que Grabi «está dañada» o nunca abre?', a: 'Es el aviso de macOS para apps beta aún sin notarización de Apple (llegará con la versión pública) — Grabi está bien. Solución: Ajustes del Sistema → Privacidad y seguridad → «Abrir de todas formas». Si ese botón no aparece, abre Terminal y pega: xattr -cr /Applications/Grabi.app — solo quita la marca de descarga, nada más.' },
       { q: '¿Funciona en Apple Silicon y en Intel?', a: 'Sí, es un binario universal: nativo en ambos, con el mismo instalador de ~2 MB.' },
       { q: '¿Y Windows o Linux?', a: 'Están en el roadmap. Grabi nació nativo en macOS; queremos llegar a Windows y Linux con la misma calidad, no con un port apurado.' },
       { q: '¿Dónde se guardan mis videos?', a: 'En tu Mac, en la carpeta Grabi de Películas (puedes cambiarla). Jamás en servidores nuestros — no tenemos.' },
@@ -134,6 +135,10 @@ const es: Dict = {
     title: 'Changelog',
     intro: 'Lo nuevo de cada versión, contado sin jerga. Lo importante primero.',
     entries: [
+      { version: 'v0.1.5', date: '22 ago 2026', notes: [
+        'App universal: un solo binario, nativo en Apple Silicon y en Intel.',
+        'Primer arranque más suave: la guía de instalación cubre todos los avisos de macOS, incluido «app dañada», con su solución de una línea.',
+      ]},
       { version: 'v0.1.4', date: '21 ago 2026', notes: [
         'Grabi ahora se actualiza solo: busca una vez al día, sin molestar, y las novedades se instalan con un clic. Esta es la última versión que descargas a mano.',
         '«Reportar un problema» en Ajustes abre un reporte pre-llenado con tu versión de la app, macOS y chip — sin buscar nada.',

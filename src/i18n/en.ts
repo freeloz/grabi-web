@@ -110,6 +110,7 @@ const en: Dict = {
       { q: 'Are there limits or a watermark?', a: 'No. Record as many hours as you want, at any quality, and the video comes out clean — no watermark, ever.' },
       { q: 'Do I need an account?', a: 'No. Download the app, open it, record. No sign-up, no email, no sales onboarding.' },
       { q: 'Which macOS versions are supported?', a: 'macOS 13 Ventura or later. System audio uses the native macOS 13+ API — that\'s why it\'s the minimum.' },
+      { q: 'macOS says Grabi "is damaged" or it never opens?', a: 'That’s macOS flagging beta apps that aren’t Apple-notarized yet (coming with the public release) — Grabi is fine. Fix: System Settings → Privacy & Security → "Open Anyway". If that button doesn’t appear, open Terminal and paste: xattr -cr /Applications/Grabi.app — it removes the download mark, nothing else.' },
       { q: 'Does it run on Apple Silicon and Intel?', a: "Yes, it's a universal binary: native on both, same ~2 MB installer." },
       { q: 'What about Windows or Linux?', a: "They're on the roadmap. Grabi was born native on macOS; we want to reach Windows and Linux with the same quality, not a rushed port." },
       { q: 'Where are my videos stored?', a: "On your Mac, in the Grabi folder inside Movies (you can change it). Never on our servers — we don't have any." },
@@ -135,6 +136,10 @@ const en: Dict = {
     title: 'Changelog',
     intro: "What's new in every release, jargon-free. The important stuff first.",
     entries: [
+      { version: 'v0.1.5', date: 'Aug 22, 2026', notes: [
+        'Universal app: one binary, native on Apple Silicon and Intel.',
+        'Smoother first launch: the install guide now covers every macOS warning, including “app is damaged”, with its one-line fix.',
+      ]},
       { version: 'v0.1.4', date: 'Aug 21, 2026', notes: [
         'Grabi now updates itself: a quiet daily check, and new versions install with one click. This is the last version you download by hand.',
         '“Report a problem” in Settings opens a pre-filled report with your app version, macOS and chip — nothing to look up.',

@@ -8,7 +8,7 @@ export const SITE = {
   // Download — served from R2 behind dl.grabi.net; `latest/` always points
   // to the newest DMG and publishes its SHA-256 alongside (.sha256 + latest.json).
   downloadUrl: import.meta.env.PUBLIC_DOWNLOAD_URL ?? 'https://dl.grabi.net/macos/latest/Grabi.dmg',
-  version: '0.1.4',
+  version: '0.1.5',
   size: '~2 MB',
   requires: 'macOS 13+',
 
