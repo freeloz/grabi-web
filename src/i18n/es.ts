@@ -135,6 +135,9 @@ const es: Dict = {
     title: 'Changelog',
     intro: 'Lo nuevo de cada versión, contado sin jerga. Lo importante primero.',
     entries: [
+      { version: 'v0.2.1', date: '23 ago 2026', notes: [
+        'La ventana ya no consume CPU de más: los medidores de nivel se redibujan solos, no toda la ventana.',
+      ]},
       { version: 'v0.2.0', date: '23 ago 2026', notes: [
         'Salir de la sección Grabar libera de verdad cámara, pantalla y micrófono — sin luz de cámara encendida.',
         'Elige tu cámara y tu micrófono, incluidas webcams externas y micros USB; si desconectas uno, vuelve al del sistema.',

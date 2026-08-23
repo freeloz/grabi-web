@@ -135,6 +135,9 @@ const fr: Dict = {
     title: 'Changelog',
     intro: 'Les nouveautés de chaque version, sans jargon. L’important d’abord.',
     entries: [
+      { version: 'v0.2.1', date: '23 août 2026', notes: [
+        'La fenêtre ne consomme plus de processeur inutilement : les indicateurs de niveau se redessinent seuls.',
+      ]},
       { version: 'v0.2.0', date: '23 août 2026', notes: [
         'Quitter la section Enregistrer libère vraiment la caméra, l’écran et le micro — plus de voyant allumé.',
         'Choisissez votre caméra et votre micro, y compris webcams externes et micros USB.',

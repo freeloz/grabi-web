@@ -135,6 +135,9 @@ const de: Dict = {
     title: 'Changelog',
     intro: 'Was in jeder Version neu ist — ohne Fachchinesisch. Das Wichtige zuerst.',
     entries: [
+      { version: 'v0.2.1', date: '23. Aug 2026', notes: [
+        'Das Fenster verbraucht keine CPU mehr unnötig: die Pegelanzeigen zeichnen sich allein neu, nicht das ganze Fenster.',
+      ]},
       { version: 'v0.2.0', date: '23. Aug 2026', notes: [
         'Den Bereich „Aufnehmen“ zu verlassen gibt Kamera, Bildschirm und Mikrofon wirklich frei — kein leuchtendes Kameralicht mehr.',
         'Wähle deine Kamera und dein Mikrofon, auch externe Webcams und USB-Mikrofone.',

@@ -136,6 +136,9 @@ const en: Dict = {
     title: 'Changelog',
     intro: "What's new in every release, jargon-free. The important stuff first.",
     entries: [
+      { version: 'v0.2.1', date: 'Aug 23, 2026', notes: [
+        'The window no longer burns CPU: the live level meters redraw on their own instead of the whole window.',
+      ]},
       { version: 'v0.2.0', date: 'Aug 23, 2026', notes: [
         'Leaving the Record tab now really releases the camera, screen and microphone — no camera light left on.',
         'Pick your camera and your microphone, including external webcams and USB mics; unplugging one falls back gracefully.',

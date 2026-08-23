@@ -135,6 +135,9 @@ const pt: Dict = {
     title: 'Changelog',
     intro: 'O que mudou em cada versão, sem jargão. O importante primeiro.',
     entries: [
+      { version: 'v0.2.1', date: '23 ago 2026', notes: [
+        'A janela não consome mais CPU à toa: os medidores de nível se redesenham sozinhos, não a janela inteira.',
+      ]},
       { version: 'v0.2.0', date: '23 ago 2026', notes: [
         'Sair da seção Gravar libera de verdade câmera, tela e microfone — sem luz de câmera acesa.',
         'Escolha sua câmera e seu microfone, incluindo webcams externas e micros USB.',
