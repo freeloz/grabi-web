@@ -136,6 +136,12 @@ const en: Dict = {
     title: 'Changelog',
     intro: "What's new in every release, jargon-free. The important stuff first.",
     entries: [
+      { version: 'v0.2.0', date: 'Aug 23, 2026', notes: [
+        'Leaving the Record tab now really releases the camera, screen and microphone — no camera light left on.',
+        'Pick your camera and your microphone, including external webcams and USB mics; unplugging one falls back gracefully.',
+        'Grabi can speak a different language than your Mac, switchable in Settings.',
+        'Live level meters for the microphone and the system audio.',
+      ]},
       { version: 'v0.1.7', date: 'Aug 23, 2026', notes: [
         'Lighter while you frame your shot: the camera now runs at the size and speed the preview needs, not full 1080p/30.',
       ]},

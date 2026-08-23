@@ -135,6 +135,12 @@ const fr: Dict = {
     title: 'Changelog',
     intro: 'Les nouveautés de chaque version, sans jargon. L’important d’abord.',
     entries: [
+      { version: 'v0.2.0', date: '23 août 2026', notes: [
+        'Quitter la section Enregistrer libère vraiment la caméra, l’écran et le micro — plus de voyant allumé.',
+        'Choisissez votre caméra et votre micro, y compris webcams externes et micros USB.',
+        'Grabi peut parler une autre langue que votre Mac, au choix dans les Réglages.',
+        'Indicateurs de niveau en direct pour le micro et l’audio du système.',
+      ]},
       { version: 'v0.1.7', date: '23 août 2026', notes: [
         'Plus légère pendant le cadrage : la caméra tourne à la taille et au rythme dont l’aperçu a besoin, pas en 1080p/30 complet.',
       ]},

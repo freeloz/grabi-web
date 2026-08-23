@@ -135,6 +135,12 @@ const de: Dict = {
     title: 'Changelog',
     intro: 'Was in jeder Version neu ist — ohne Fachchinesisch. Das Wichtige zuerst.',
     entries: [
+      { version: 'v0.2.0', date: '23. Aug 2026', notes: [
+        'Den Bereich „Aufnehmen“ zu verlassen gibt Kamera, Bildschirm und Mikrofon wirklich frei — kein leuchtendes Kameralicht mehr.',
+        'Wähle deine Kamera und dein Mikrofon, auch externe Webcams und USB-Mikrofone.',
+        'Grabi kann eine andere Sprache sprechen als dein Mac, umstellbar in den Einstellungen.',
+        'Live-Pegelanzeigen für Mikrofon und Systemton.',
+      ]},
       { version: 'v0.1.7', date: '23. Aug 2026', notes: [
         'Leichter beim Ausrichten: die Kamera läuft in der Größe und Geschwindigkeit, die die Vorschau braucht, nicht in vollen 1080p/30.',
       ]},

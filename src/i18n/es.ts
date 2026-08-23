@@ -135,6 +135,12 @@ const es: Dict = {
     title: 'Changelog',
     intro: 'Lo nuevo de cada versión, contado sin jerga. Lo importante primero.',
     entries: [
+      { version: 'v0.2.0', date: '23 ago 2026', notes: [
+        'Salir de la sección Grabar libera de verdad cámara, pantalla y micrófono — sin luz de cámara encendida.',
+        'Elige tu cámara y tu micrófono, incluidas webcams externas y micros USB; si desconectas uno, vuelve al del sistema.',
+        'Grabi puede hablar un idioma distinto al de tu Mac, cambiable en Ajustes.',
+        'Medidores de nivel en vivo para el micrófono y el audio del sistema.',
+      ]},
       { version: 'v0.1.7', date: '23 ago 2026', notes: [
         'Más ligera mientras encuadras: la cámara corre al tamaño y ritmo que la vista previa necesita, no a 1080p/30 completos.',
       ]},
