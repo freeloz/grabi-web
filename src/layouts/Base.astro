@@ -102,6 +102,19 @@ const jsonLd = {
 </head>
 <body>
   <a class="skip" href="#main">{t.a11y.skip}</a>
+
+  <!-- Cinta de ambiente: oculta en producción; se muestra sola en cualquier
+       host que no sea grabi.net (previews de PR, workers.dev, staging). -->
+  <div id="env-ribbon" hidden>⚠️ AMBIENTE DE PRUEBAS (STAGING) — esto no es grabi.net</div>
+  <script is:inline>
+    (function () {
+      var h = location.hostname;
+      if (h !== 'grabi.net' && h !== 'www.grabi.net' && h !== 'localhost' && h !== '127.0.0.1') {
+        document.getElementById('env-ribbon').hidden = false;
+      }
+    })();
+  </script>
+
   <slot />
 
   <!-- Minimal analytics event delegation: elements opt in with data-event.
@@ -125,4 +138,10 @@ const jsonLd = {
     padding: 10px 18px; border-radius: 0 0 var(--r-sm) 0; font-weight: 600;
   }
   .skip:focus { left: 0; }
+  #env-ribbon {
+    position: sticky; top: 0; z-index: 99;
+    background: #F6C445; color: #26221C;
+    text-align: center; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.04em; padding: 8px 16px;
+  }
 </style>
