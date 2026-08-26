@@ -118,6 +118,17 @@ const pt: Dict = {
       { q: 'Como o projeto se financia?', a: 'Com doações (Buy Me a Coffee e GitHub Sponsors). Sem investidores, sem anúncios, sem vender dados — não coletamos nenhum.' },
     ],
   },
+  cloud: {
+    eyebrow: 'Em breve',
+    title: 'Grabi Cloud: compartilhe com um link.',
+    text: 'Termine de gravar e tenha um link pronto para colar onde quiser. Será opcional e só se você quiser: o app continua 100% local, grátis e sem conta para sempre. Deixe seu e-mail e avisamos quando abrir.',
+    placeholder: 'voce@email.com',
+    button: 'Avisar-me',
+    success: 'Pronto! Avisamos você quando o Grabi Cloud abrir.',
+    invalid: 'Esse e-mail não parece válido — confira.',
+    error: 'Não conseguimos salvar. Tente de novo em instantes.',
+    privacy: 'Usamos seu e-mail apenas para avisar do lançamento. Nada de spam.',
+  },
   cta: {
     title: 'Sua próxima gravação está a um clique.',
     button: 'Baixar grátis para macOS',

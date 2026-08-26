@@ -24,6 +24,11 @@ export interface Dict {
   oss: { eyebrow: string; title: string; code: string; contribute: string; bug: string };
   donate: { title: string; coffee: string; sponsors: string };
   faq: { eyebrow: string; title: string; items: { q: string; a: string }[] };
+  cloud: {
+    eyebrow: string; title: string; text: string;
+    placeholder: string; button: string;
+    success: string; invalid: string; error: string; privacy: string;
+  };
   cta: { title: string; button: string; meta: string };
   footer: {
     tagline: string; product: string; download: string; changelog: string; roadmap: string; faq: string;

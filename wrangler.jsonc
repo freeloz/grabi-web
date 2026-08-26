@@ -4,14 +4,26 @@
   "compatibility_date": "2026-08-01",
   "account_id": "0ef61977f8d1fc1e483034fdbde55f9e", // Freeloz SAS
 
-  // Assets-only Worker (recommended path for static Astro sites):
-  // no server code — Cloudflare serves dist/ from the edge.
-  // _headers (security/CSP/cache) and 404.html are honored automatically.
+  // Static assets + a tiny API. The Worker script only runs for /api/*
+  // (run_worker_first); everything else is served straight from dist/ at the
+  // edge, so _headers (security/CSP/cache) and 404.html keep working as before.
+  "main": "worker/index.js",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
   },
+
+  // Grabi Cloud waitlist (D1: emails + locale, unique per email).
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "grabi-waitlist",
+      "database_id": "2379c507-7179-4412-95f8-0441220b556a"
+    }
+  ],
 
   // Version preview URLs for PR deploys (<version>-grabi-web.<subdomain>.workers.dev)
   "preview_urls": true,

@@ -12,6 +12,7 @@ import Compare from './Compare.astro';
 import Privacy from './Privacy.astro';
 import OssDonate from './OssDonate.astro';
 import Faq from './Faq.astro';
+import Waitlist from './Waitlist.astro';
 import FinalCta from './FinalCta.astro';
 import Footer from './Footer.astro';
 interface Props { lang: Locale }
@@ -28,6 +29,7 @@ const { lang } = Astro.props;
     <Privacy lang={lang} />
     <OssDonate lang={lang} />
     <Faq lang={lang} />
+    <Waitlist lang={lang} />
     <FinalCta lang={lang} />
   </div>
 </main>

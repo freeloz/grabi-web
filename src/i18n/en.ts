@@ -119,6 +119,17 @@ const en: Dict = {
       { q: 'How is the project funded?', a: "Donations (Buy Me a Coffee and GitHub Sponsors). No investors, no ads, no selling data — we don't collect any." },
     ],
   },
+  cloud: {
+    eyebrow: 'Coming soon',
+    title: 'Grabi Cloud: share with a link.',
+    text: 'Finish recording and get a link ready to paste anywhere. It will be optional and only if you choose it: the app stays 100% local, free and account-free forever. Leave your email and we’ll let you know when it opens.',
+    placeholder: 'you@email.com',
+    button: 'Notify me',
+    success: 'Done! We’ll email you when Grabi Cloud opens.',
+    invalid: 'That email doesn’t look valid — check it.',
+    error: 'We couldn’t save it. Try again in a moment.',
+    privacy: 'We only use your email to announce the launch. No spam.',
+  },
   cta: {
     title: 'Your next recording is one click away.',
     button: 'Download free for macOS',

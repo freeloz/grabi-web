@@ -1,0 +1,75 @@
+---
+import { type Locale } from '../config';
+import { dictionaries } from '../i18n';
+import Mascot from './Mascot.astro';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+---
+<section id="cloud" class="cloud card">
+  <div class="head">
+    <span class="eyebrow">{t.cloud.eyebrow}</span>
+    <h2>{t.cloud.title}</h2>
+    <p class="text">{t.cloud.text}</p>
+  </div>
+  <form class="form" method="post" action="/api/waitlist" novalidate>
+    <label class="sr-only" for="wl-email">{t.cloud.placeholder}</label>
+    <input id="wl-email" name="email" type="email" required maxlength="254"
+      placeholder={t.cloud.placeholder} autocomplete="email" inputmode="email" />
+    <!-- honeypot: humans never see it, bots fill it -->
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <button type="submit">{t.cloud.button}</button>
+  </form>
+  <p class="status" role="status" aria-live="polite" hidden></p>
+  <span class="meta"><Mascot pose="happy" size={20} /> {t.cloud.privacy}</span>
+</section>
+<script is:inline define:vars={{ lang, msgs: { success: t.cloud.success, invalid: t.cloud.invalid, error: t.cloud.error } }}>
+  const form = document.querySelector('#cloud .form');
+  const status = document.querySelector('#cloud .status');
+  const show = (text, kind) => { status.textContent = text; status.dataset.kind = kind; status.hidden = false; };
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = form.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { show(msgs.invalid, 'bad'); return; }
+    form.querySelector('button').disabled = true;
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, locale: lang, website: form.website.value }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      show(msgs.success, 'ok');
+      form.reset();
+    } catch {
+      show(msgs.error, 'bad');
+      form.querySelector('button').disabled = false;
+    }
+  });
+</script>
+<style>
+  .cloud { display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; padding: 44px 28px; }
+  .head { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  h2 { font-size: clamp(28px, 4.5vw, 38px); line-height: 1.1; font-weight: 750; margin: 0; max-width: 560px; }
+  .text { margin: 0; max-width: 560px; font-size: 15.5px; line-height: 1.6; color: var(--text2); }
+  .form { display: flex; gap: 10px; width: 100%; max-width: 440px; flex-wrap: wrap; justify-content: center; }
+  input[type='email'] {
+    flex: 1 1 220px; height: 48px; padding: 0 16px; font: inherit; font-size: 15px;
+    color: var(--text); background: var(--surface); border: 1.5px solid var(--border2);
+    border-radius: var(--r-full); outline: none;
+  }
+  input[type='email']:focus-visible { border-color: var(--brand); }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  button {
+    height: 48px; padding: 0 24px; font: inherit; font-size: 15px; font-weight: 650;
+    color: var(--onbrand); background: var(--brand); border: none; border-radius: var(--r-full);
+    cursor: pointer;
+  }
+  button:hover { background: var(--brandh); }
+  button:disabled { opacity: 0.6; cursor: default; }
+  .status { margin: 0; font-size: 14px; font-weight: 600; }
+  .status[data-kind='ok'] { color: var(--exito); }
+  .status[data-kind='bad'] { color: var(--brand); }
+  .meta { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text2); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
