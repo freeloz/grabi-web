@@ -112,10 +112,10 @@ const pt: Dict = {
       { q: 'O macOS diz que o Grabi «está danificado» ou ele nunca abre?', a: 'É o aviso do macOS para apps beta ainda sem notarização da Apple (virá com a versão pública) — o Grabi está bem. Solução: Ajustes do Sistema → Privacidade e Segurança → «Abrir mesmo assim». Se esse botão não aparecer, abra o Terminal e cole: xattr -cr /Applications/Grabi.app — só remove a marca de download, nada mais.' },
       { q: 'Funciona em Apple Silicon e Intel?', a: 'Sim, é um binário universal: nativo nos dois, com o mesmo instalador de ~3 MB.' },
       { q: 'E Windows ou Linux?', a: 'Estão no roadmap. O Grabi nasceu nativo no macOS; queremos chegar ao Windows e Linux com a mesma qualidade, não com um port apressado.' },
-      { q: 'Onde meus vídeos ficam salvos?', a: 'No seu Mac, na pasta Grabi dentro de Filmes (você pode mudar). Jamais em servidores nossos — não temos nenhum.' },
+      { q: 'Onde meus vídeos ficam salvos?', a: 'No seu Mac, na pasta Grabi dentro de Filmes (você pode mudar). Seus vídeos só saem do Mac pelo Grabi Cloud — nosso serviço opcional — e só quando você toca em «Compartilhar».' },
       { q: 'Quanto pesam as gravações?', a: 'Cerca de 3 GB por hora na qualidade Padrão e 6 GB por hora na Nítida (4K). Um tutorial de 10 minutos fica em uns 500 MB.' },
       { q: 'Grava o áudio do sistema sem instalar drivers?', a: 'Sim. Usamos a permissão nativa do macOS — nada de extensões de áudio virtuais nem drivers de terceiros.' },
-      { q: 'Como o projeto se financia?', a: 'Com doações (Buy Me a Coffee e GitHub Sponsors). Sem investidores, sem anúncios, sem vender dados — não coletamos nenhum.' },
+      { q: 'Como o projeto se financia?', a: 'Hoje, com doações (Buy Me a Coffee e GitHub Sponsors). Em breve, também com o Grabi Cloud Pro — nosso serviço opcional de compartilhar por link — que mantém o app grátis, completo e open source. Sem investidores, sem anúncios, sem vender dados.' },
     ],
   },
   cloud: {

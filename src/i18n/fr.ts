@@ -112,10 +112,10 @@ const fr: Dict = {
       { q: 'macOS dit que Grabi « est endommagée » ou elle ne s’ouvre jamais ?', a: 'C’est l’avertissement de macOS pour les apps bêta pas encore notariées par Apple (ça viendra avec la version publique) — Grabi va bien. Solution : Réglages Système → Confidentialité et sécurité → « Ouvrir quand même ». Si ce bouton n’apparaît pas, ouvrez le Terminal et collez : xattr -cr /Applications/Grabi.app — ça retire la marque de téléchargement, rien d’autre.' },
       { q: 'Ça marche sur Apple Silicon et Intel ?', a: 'Oui, c’est un binaire universel : natif sur les deux, avec le même installateur de ~2 Mo.' },
       { q: 'Et Windows ou Linux ?', a: 'C’est sur la roadmap. Grabi est né natif sur macOS ; nous voulons arriver sur Windows et Linux avec la même qualité, pas avec un portage bâclé.' },
-      { q: 'Où sont stockées mes vidéos ?', a: 'Sur votre Mac, dans le dossier Grabi de Vidéos (modifiable). Jamais sur nos serveurs — nous n’en avons pas.' },
+      { q: 'Où sont stockées mes vidéos ?', a: 'Sur votre Mac, dans le dossier Grabi de Vidéos (modifiable). Vos vidéos ne quittent votre Mac que via Grabi Cloud — notre service optionnel — et seulement quand vous touchez « Partager ».' },
       { q: 'Quel poids font les enregistrements ?', a: 'Environ 3 Go par heure en qualité Standard et 6 Go par heure en Nette (4K). Un tuto de 10 minutes tourne autour de 500 Mo.' },
       { q: 'L’audio du système s’enregistre sans installer de drivers ?', a: 'Oui. Nous utilisons l’autorisation native de macOS — pas d’extensions audio virtuelles ni de drivers tiers.' },
-      { q: 'Comment le projet se finance-t-il ?', a: 'Par les dons (Buy Me a Coffee et GitHub Sponsors). Sans investisseurs, sans pubs, sans vendre de données — nous n’en collectons pas.' },
+      { q: 'Comment le projet se finance-t-il ?', a: 'Aujourd’hui, par les dons (Buy Me a Coffee et GitHub Sponsors). Bientôt, aussi par Grabi Cloud Pro — notre service optionnel de partage par lien — qui garde l’app gratuite, complète et open source. Sans investisseurs, sans pubs, sans vendre de données.' },
     ],
   },
   cloud: {

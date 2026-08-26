@@ -112,10 +112,10 @@ const de: Dict = {
       { q: 'macOS sagt, Grabi sei „beschädigt“, oder die App öffnet nie?', a: 'Das ist der macOS-Hinweis für Beta-Apps ohne Apple-Notarisierung (kommt mit dem öffentlichen Release) — Grabi ist in Ordnung. Lösung: Systemeinstellungen → Datenschutz & Sicherheit → „Trotzdem öffnen“. Fehlt dieser Knopf, öffne das Terminal und füge ein: xattr -cr /Applications/Grabi.app — das entfernt nur die Download-Markierung, sonst nichts.' },
       { q: 'Läuft es auf Apple Silicon und Intel?', a: 'Ja, es ist ein Universal Binary: nativ auf beiden, mit demselben ~2-MB-Installer.' },
       { q: 'Und Windows oder Linux?', a: 'Stehen auf der Roadmap. Grabi ist nativ auf macOS geboren; wir wollen Windows und Linux mit derselben Qualität erreichen, nicht mit einem hastigen Port.' },
-      { q: 'Wo werden meine Videos gespeichert?', a: 'Auf deinem Mac, im Grabi-Ordner unter Filme (änderbar). Nie auf unseren Servern — wir haben keine.' },
+      { q: 'Wo werden meine Videos gespeichert?', a: 'Auf deinem Mac, im Grabi-Ordner unter Filme (änderbar). Deine Videos verlassen den Mac nur über Grabi Cloud — unseren optionalen Dienst — und nur, wenn du auf „Teilen“ tippst.' },
       { q: 'Wie groß werden die Aufnahmen?', a: 'Etwa 3 GB pro Stunde in Standard-Qualität und 6 GB pro Stunde in Scharf (4K). Ein 10-Minuten-Tutorial liegt bei rund 500 MB.' },
       { q: 'Nimmt es Systemaudio ohne Treiber auf?', a: 'Ja. Wir nutzen die native macOS-Berechtigung — keine virtuellen Audio-Extensions, keine Dritt-Treiber.' },
-      { q: 'Wie finanziert sich das Projekt?', a: 'Durch Spenden (Buy Me a Coffee und GitHub Sponsors). Ohne Investoren, ohne Werbung, ohne Datenverkauf — wir sammeln keine.' },
+      { q: 'Wie finanziert sich das Projekt?', a: 'Heute durch Spenden (Buy Me a Coffee und GitHub Sponsors). Bald auch durch Grabi Cloud Pro — unseren optionalen Link-Sharing-Dienst — der die App gratis, vollständig und open source hält. Ohne Investoren, ohne Werbung, ohne Datenverkauf.' },
     ],
   },
   cloud: {

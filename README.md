@@ -98,6 +98,11 @@ design.
 
 [MIT](LICENSE) © Freeloz
 
+The site (this repo) and the app ([grabi-macos](https://github.com/freeloz/grabi-macos))
+are and will remain open source. **Grabi Cloud** — the optional hosted
+sharing service the site's waitlist announces — runs on a separate private
+backend; its paid plan is how the free, account-less app stays funded.
+
 ---
 
 ## En español
