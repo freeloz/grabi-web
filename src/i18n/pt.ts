@@ -149,7 +149,7 @@ const pt: Dict = {
     plansSub: 'Comece grátis. Passe para o Pro quando quiser que seus vídeos não expirem.',
     monthly: 'Mensal',
     annual: 'Anual',
-    annualNote: '2 meses grátis',
+    annualNote: 'economize 37%',
     perMonth: '/mês',
     perYear: '/ano',
     free: {
