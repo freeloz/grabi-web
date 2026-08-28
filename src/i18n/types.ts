@@ -1,6 +1,6 @@
 export interface Dict {
   meta: { title: string; description: string; changelogTitle: string; changelogDesc: string; pressTitle: string; pressDesc: string };
-  nav: { how: string; features: string; compare: string; faq: string; download: string; theme: string; language: string };
+  nav: { how: string; features: string; compare: string; cloud: string; faq: string; download: string; theme: string; language: string };
   hero: {
     title: string; sub: string; cta: string; meta: string; github: string;
     demoWindow: string; demoPlay: string; demoEnd: string; demoReplay: string;
@@ -28,10 +28,26 @@ export interface Dict {
     eyebrow: string; title: string; text: string;
     placeholder: string; button: string;
     success: string; invalid: string; error: string; privacy: string;
+    more: string;
+  };
+  cloudPage: {
+    metaTitle: string; metaDesc: string;
+    eyebrow: string; title: string; sub: string;
+    optIn: { title: string; text: string };
+    steps: { title: string; text: string }[];
+    plansTitle: string; plansSub: string;
+    monthly: string; annual: string; annualNote: string;
+    perMonth: string; perYear: string;
+    free: { name: string; price: string; note: string; features: string[] };
+    pro: { name: string; badge: string; monthly: string; annual: string; features: string[] };
+    student: { name: string; monthly: string; annual: string; note: string; features: string[] };
+    cta: string; ctaNote: string;
+    faqTitle: string;
+    faq: { q: string; a: string }[];
   };
   cta: { title: string; button: string; meta: string };
   footer: {
-    tagline: string; product: string; download: string; changelog: string; roadmap: string; faq: string;
+    tagline: string; product: string; download: string; cloudLink: string; changelog: string; roadmap: string; faq: string;
     resources: string; github: string; press: string; bug: string; donate: string; contact: string;
     legal: string; honesty: string;
   };

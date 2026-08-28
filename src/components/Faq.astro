@@ -1,18 +1,20 @@
 ---
-/* Native <details> — works without JS, per wireframe. */
+/* Native <details> — works without JS, per wireframe. Reusable: the landing
+   passes nothing (its own FAQ); /cloud passes its own items and title. */
 import { type Locale } from '../config';
 import { dictionaries } from '../i18n';
-interface Props { lang: Locale }
-const { lang } = Astro.props;
+interface Props { lang: Locale; items?: { q: string; a: string }[]; title?: string }
+const { lang, items, title } = Astro.props;
 const t = dictionaries[lang];
+const list = items ?? t.faq.items;
 ---
 <section id="faq" class="faq">
   <div class="head">
     <span class="eyebrow">{t.faq.eyebrow}</span>
-    <h2>{t.faq.title}</h2>
+    <h2>{title ?? t.faq.title}</h2>
   </div>
   <div class="list">
-    {t.faq.items.map((item) => (
+    {list.map((item) => (
       <details>
         <summary>{item.q}</summary>
         <p>{item.a}</p>

@@ -8,14 +8,20 @@ import '../styles/tokens.css';
 
 interface Props {
   lang: Locale;
-  page?: '' | 'changelog' | 'press' | '404';
+  page?: '' | 'changelog' | 'press' | 'cloud' | '404';
   title?: string;
   description?: string;
 }
 const { lang, page = '', title, description } = Astro.props;
 const t = dictionaries[lang];
-const pageTitle = title ?? (page === 'changelog' ? t.meta.changelogTitle : page === 'press' ? t.meta.pressTitle : t.meta.title);
-const pageDesc = description ?? (page === 'changelog' ? t.meta.changelogDesc : page === 'press' ? t.meta.pressDesc : t.meta.description);
+const metaByPage = {
+  changelog: [t.meta.changelogTitle, t.meta.changelogDesc],
+  press: [t.meta.pressTitle, t.meta.pressDesc],
+  cloud: [t.cloudPage.metaTitle, t.cloudPage.metaDesc],
+} as const;
+const [defTitle, defDesc] = metaByPage[page as keyof typeof metaByPage] ?? [t.meta.title, t.meta.description];
+const pageTitle = title ?? defTitle;
+const pageDesc = description ?? defDesc;
 const canonical = `${SITE.url}${pathFor(lang, page === '404' ? '' : page)}`;
 const isIndexable = page !== '404';
 

@@ -5,6 +5,10 @@ export const SITE = {
   url: 'https://grabi.net',
   email: 'hola@grabi.net',
 
+  // Grabi Cloud — la app web (panel, player, checkout) vive fuera de este
+  // sitio estático: es el Worker de grabi-cloud.
+  appUrl: 'https://app.grabi.net',
+
   // Download — served from R2 behind dl.grabi.net; `latest/` always points
   // to the newest DMG and publishes its SHA-256 alongside (.sha256 + latest.json).
   downloadUrl: import.meta.env.PUBLIC_DOWNLOAD_URL ?? 'https://dl.grabi.net/macos/latest/Grabi.dmg',

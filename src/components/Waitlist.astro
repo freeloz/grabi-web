@@ -1,5 +1,5 @@
 ---
-import { type Locale } from '../config';
+import { pathFor, type Locale } from '../config';
 import { dictionaries } from '../i18n';
 import Mascot from './Mascot.astro';
 interface Props { lang: Locale }
@@ -11,6 +11,7 @@ const t = dictionaries[lang];
     <span class="eyebrow">{t.cloud.eyebrow}</span>
     <h2>{t.cloud.title}</h2>
     <p class="text">{t.cloud.text}</p>
+    <a class="more" href={pathFor(lang, 'cloud')}>{t.cloud.more} →</a>
   </div>
   <form class="form" method="post" action="/api/waitlist" novalidate>
     <label class="sr-only" for="wl-email">{t.cloud.placeholder}</label>
@@ -52,6 +53,8 @@ const t = dictionaries[lang];
   .head { display: flex; flex-direction: column; align-items: center; gap: 12px; }
   h2 { font-size: clamp(28px, 4.5vw, 38px); line-height: 1.1; font-weight: 750; margin: 0; max-width: 560px; }
   .text { margin: 0; max-width: 560px; font-size: 15.5px; line-height: 1.6; color: var(--text2); }
+  .more { font-size: 14.5px; font-weight: 600; color: var(--brand); text-decoration: none; }
+  .more:hover { text-decoration: underline; }
   .form { display: flex; gap: 10px; width: 100%; max-width: 440px; flex-wrap: wrap; justify-content: center; }
   input[type='email'] {
     flex: 1 1 220px; height: 48px; padding: 0 16px; font: inherit; font-size: 15px;

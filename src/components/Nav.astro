@@ -14,6 +14,7 @@ const home = pathFor(lang);
     <a href={`${home === '/' ? '' : home}/#como`}>{t.nav.how}</a>
     <a href={`${home === '/' ? '' : home}/#features`}>{t.nav.features}</a>
     <a href={`${home === '/' ? '' : home}/#comparativa`}>{t.nav.compare}</a>
+    <a href={pathFor(lang, 'cloud')} class:list={{ current: page === 'cloud' }}>{t.nav.cloud}</a>
     <a href={`${home === '/' ? '' : home}/#faq`}>{t.nav.faq}</a>
   </div>
   <div class="actions">
@@ -57,6 +58,7 @@ const home = pathFor(lang);
   .links { flex: 1; display: flex; gap: 22px; font-size: 14px; font-weight: 500; }
   .links a { color: var(--text2); text-decoration: none; }
   .links a:hover { color: var(--text); }
+  .links a.current { color: var(--brand); font-weight: 600; }
   .actions { display: flex; align-items: center; gap: 12px; }
   .theme {
     display: inline-flex; background: none; border: 0; cursor: pointer;

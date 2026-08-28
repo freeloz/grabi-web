@@ -18,6 +18,7 @@ const home = pathFor(lang);
     <nav class="col" aria-label={t.footer.product}>
       <strong>{t.footer.product}</strong>
       <a href={SITE.downloadUrl} data-event="download_click" data-section="footer" rel="noopener">{t.footer.download}</a>
+      <a href={pathFor(lang, 'cloud')}>{t.footer.cloudLink}</a>
       <a href={pathFor(lang, 'changelog')}>{t.footer.changelog}</a>
       <a href={`${SITE.githubApp}/milestones`} rel="noopener" target="_blank">{t.footer.roadmap}</a>
       <a href={`${home === '/' ? '' : home}/#faq`}>{t.footer.faq}</a>
