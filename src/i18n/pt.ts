@@ -109,7 +109,6 @@ const pt: Dict = {
       { q: 'Tem limites ou marca d\'água?', a: 'Não. Grave as horas que quiser, na qualidade que quiser, e o vídeo sai limpo — sem marca d\'água, nunca.' },
       { q: 'Preciso criar uma conta?', a: 'Não. Baixa o app, abre e grava. Sem cadastro, sem e-mail, sem onboarding de vendas.' },
       { q: 'Quais versões do macOS são suportadas?', a: 'macOS 13 Ventura ou superior. O áudio do sistema usa a API nativa do macOS 13+, por isso esse é o mínimo.' },
-      { q: 'O macOS diz que o Grabi «está danificado» ou ele nunca abre?', a: 'É o aviso do macOS para apps beta ainda sem notarização da Apple (virá com a versão pública) — o Grabi está bem. Solução: Ajustes do Sistema → Privacidade e Segurança → «Abrir mesmo assim». Se esse botão não aparecer, abra o Terminal e cole: xattr -cr /Applications/Grabi.app — só remove a marca de download, nada mais.' },
       { q: 'Funciona em Apple Silicon e Intel?', a: 'Sim, é um binário universal: nativo nos dois, com o mesmo instalador de ~3 MB.' },
       { q: 'E Windows ou Linux?', a: 'Você já pode gravar pelo navegador no Windows, Linux ou Chromebook com o Grabi Cloud, sem instalar nada. O app nativo nasceu no macOS; queremos chegar ao Windows com a mesma qualidade, não com um port apressado.' },
       { q: 'Onde meus vídeos ficam salvos?', a: 'No seu Mac, na pasta Grabi dentro de Filmes (você pode mudar). Seus vídeos só saem do Mac pelo Grabi Cloud — nosso serviço opcional — e só quando você toca em «Compartilhar».' },

@@ -110,7 +110,6 @@ const en: Dict = {
       { q: 'Are there limits or a watermark?', a: 'No. Record as many hours as you want, at any quality, and the video comes out clean — no watermark, ever.' },
       { q: 'Do I need an account?', a: 'No. Download the app, open it, record. No sign-up, no email, no sales onboarding.' },
       { q: 'Which macOS versions are supported?', a: 'macOS 13 Ventura or later. System audio uses the native macOS 13+ API — that\'s why it\'s the minimum.' },
-      { q: 'macOS says Grabi "is damaged" or it never opens?', a: 'That’s macOS flagging beta apps that aren’t Apple-notarized yet (coming with the public release) — Grabi is fine. Fix: System Settings → Privacy & Security → "Open Anyway". If that button doesn’t appear, open Terminal and paste: xattr -cr /Applications/Grabi.app — it removes the download mark, nothing else.' },
       { q: 'Does it run on Apple Silicon and Intel?', a: "Yes, it's a universal binary: native on both, same ~3 MB installer." },
       { q: 'What about Windows or Linux?', a: 'You can already record from the browser on Windows, Linux or a Chromebook with Grabi Cloud, nothing to install. The native app was born on macOS; we want to reach Windows with the same quality, not a rushed port.' },
       { q: 'Where are my videos stored?', a: "On your Mac, in the Grabi folder inside Movies (you can change it). Your videos only leave your Mac through Grabi Cloud — our optional service — and only when you tap “Share”." },
