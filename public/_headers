@@ -1,4 +1,10 @@
 # Security + caching for Cloudflare Workers static assets
+#
+# Nota deliberada sobre la CSP: *.clarity.ms está permitido (analítica de
+# producto), pero c.bing.com NO. Ese es el píxel de sincronización de
+# identidad cross-site de Microsoft; bloquearlo mantiene la promesa de
+# privacidad de Grabi y no afecta las métricas. El error de consola que
+# genera es la protección funcionando — no lo "arregles" agregando bing.
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
