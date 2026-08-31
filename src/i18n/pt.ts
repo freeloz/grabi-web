@@ -216,6 +216,12 @@ const pt: Dict = {
     title: 'Changelog',
     intro: 'O que mudou em cada versão, sem jargão. O importante primeiro.',
     entries: [
+      { version: 'v0.3.0', date: '31 ago 2026', notes: [
+        'O Grabi está assinado e notarizado pela Apple: acabou o aviso de que o app «está danificado».',
+        'Os links do Grabi Cloud abrem o app em vez do navegador, se você o tiver instalado.',
+        'Entrar com a Apple, além do Google, se você optar por usar o Grabi Cloud.',
+        'Vem da beta: baixe esta versão à mão uma vez — a identidade interna do app mudou e a atualização automática não consegue dar o salto.',
+      ]},
       { version: 'v0.2.1', date: '23 ago 2026', notes: [
         'A janela não consome mais CPU à toa: os medidores de nível se redesenham sozinhos, não a janela inteira.',
       ]},

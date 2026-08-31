@@ -217,6 +217,12 @@ const en: Dict = {
     title: 'Changelog',
     intro: "What's new in every release, jargon-free. The important stuff first.",
     entries: [
+      { version: 'v0.3.0', date: '31 Aug 2026', notes: [
+        'Grabi is signed and notarized by Apple — no more "app is damaged" warning.',
+        'Grabi Cloud links open the app instead of the browser, if you have it installed.',
+        'Sign in with Apple, alongside Google, if you choose to use Grabi Cloud.',
+        'Coming from the beta: download this one manually once — the app’s internal identity changed and the auto-updater can’t make the jump.',
+      ]},
       { version: 'v0.2.1', date: 'Aug 23, 2026', notes: [
         'The window no longer burns CPU: the live level meters redraw on their own instead of the whole window.',
       ]},

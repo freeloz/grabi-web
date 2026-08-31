@@ -216,6 +216,12 @@ const de: Dict = {
     title: 'Changelog',
     intro: 'Was in jeder Version neu ist — ohne Fachchinesisch. Das Wichtige zuerst.',
     entries: [
+      { version: 'v0.3.0', date: '31. Aug. 2026', notes: [
+        'Grabi ist von Apple signiert und notarisiert — kein „App ist beschädigt“ mehr.',
+        'Grabi-Cloud-Links öffnen die App statt des Browsers, wenn sie installiert ist.',
+        'Mit Apple anmelden, zusätzlich zu Google, falls du Grabi Cloud nutzt.',
+        'Du kommst aus der Beta: Lade diese Version einmal manuell — die interne Identität der App hat sich geändert, das automatische Update kann den Sprung nicht machen.',
+      ]},
       { version: 'v0.2.1', date: '23. Aug 2026', notes: [
         'Das Fenster verbraucht keine CPU mehr unnötig: die Pegelanzeigen zeichnen sich allein neu, nicht das ganze Fenster.',
       ]},
