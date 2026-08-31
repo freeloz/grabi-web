@@ -216,7 +216,7 @@ const de: Dict = {
     title: 'Changelog',
     intro: 'Was in jeder Version neu ist — ohne Fachchinesisch. Das Wichtige zuerst.',
     entries: [
-      { version: 'v0.3.0', date: '31. Aug. 2026', notes: [
+      { version: 'v0.3.1', date: '31. Aug. 2026', notes: [
         'Grabi ist von Apple signiert und notarisiert — kein „App ist beschädigt“ mehr.',
         'Grabi-Cloud-Links öffnen die App statt des Browsers, wenn sie installiert ist.',
         'Mit Apple anmelden, zusätzlich zu Google, falls du Grabi Cloud nutzt.',
