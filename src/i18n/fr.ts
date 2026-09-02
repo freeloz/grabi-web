@@ -216,6 +216,10 @@ const fr: Dict = {
     title: 'Changelog',
     intro: 'Les nouveautés de chaque version, sans jargon. L’important d’abord.',
     entries: [
+      { version: 'v0.3.2', date: '1 sept. 2026', notes: [
+        'La connexion à Grabi Cloud fonctionne : « Continuer avec Google » ramène votre session dans l’app, et en cas d’échec l’app le dit.',
+        'Si vous étiez déjà connecté sur le web, l’app récupère cette session sans rien demander.',
+      ]},
       { version: 'v0.3.1', date: '31 août 2026', notes: [
         'Grabi est signée et notariée par Apple : fini l’avertissement « l’app est endommagée ».',
         'Les liens Grabi Cloud ouvrent l’app au lieu du navigateur, si elle est installée.',

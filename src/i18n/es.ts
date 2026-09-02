@@ -216,6 +216,10 @@ const es: Dict = {
     title: 'Changelog',
     intro: 'Lo nuevo de cada versión, contado sin jerga. Lo importante primero.',
     entries: [
+      { version: 'v0.3.2', date: '1 sep 2026', notes: [
+        'Entrar en Grabi Cloud ya funciona: «Continuar con Google» vuelve a la app con tu sesión, y si algo falla la app te lo dice.',
+        'Si ya habías entrado desde la web, la app recibe esa misma sesión sin pedirte nada.',
+      ]},
       { version: 'v0.3.1', date: '31 ago 2026', notes: [
         'Grabi está firmada y notarizada por Apple: se acabó el aviso de que la app «está dañada».',
         'Los enlaces de Grabi Cloud abren la app en vez del navegador, si la tienes instalada.',

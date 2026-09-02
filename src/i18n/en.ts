@@ -217,6 +217,10 @@ const en: Dict = {
     title: 'Changelog',
     intro: "What's new in every release, jargon-free. The important stuff first.",
     entries: [
+      { version: 'v0.3.2', date: '1 Sep 2026', notes: [
+        'Signing in to Grabi Cloud works now: “Continue with Google” brings your session back to the app, and if something fails the app says so.',
+        'If you had already signed in on the web, the app picks up that same session without asking.',
+      ]},
       { version: 'v0.3.1', date: '31 Aug 2026', notes: [
         'Grabi is signed and notarized by Apple — no more "app is damaged" warning.',
         'Grabi Cloud links open the app instead of the browser, if you have it installed.',
